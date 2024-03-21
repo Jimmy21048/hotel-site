@@ -13,26 +13,31 @@ export default function Home() {
     return (
         <div className="home">
             <div className='home-top'>
-                <img src="./images/home-image.jpg" alt="" />
-                
+                <p>Uradi</p>
+                <p>Encore</p>
+                <p>Resort</p>
+                <i>Experience the best</i>
+                {/* <img src="./images/home-image.jpg" alt="" /> */}
             </div>
+            <h3 className='home-services-title'>Our Services</h3>
             <div className='home-center'>
-                <div className='home-center-box'><i class="fa-solid fa-utensils"></i> <p>Food</p></div>
+                <div className='home-center-box'><i className="fa-solid fa-utensils"></i> <p>Food</p></div>
                 <hr />
-                <div className='home-center-box'><i class="fa-solid fa-bed"></i> <p>Accomodation</p></div>
+                <div className='home-center-box'><i className="fa-solid fa-bed"></i> <p>Accomodation</p></div>
                 <hr />
-                <div className='home-center-box'><i class="fa-solid fa-person-hiking"></i> <p>Games</p></div>
+                <div className='home-center-box'><i className="fa-solid fa-person-hiking"></i> <p>Games</p></div>
                 <hr />
-                <div className='home-center-box'><i class="fa-solid fa-kiwi-bird"></i> <p>Scenary</p></div>
+                <div className='home-center-box'><i className="fa-solid fa-kiwi-bird"></i> <p>Scenary</p></div>
             </div>
             <div className='home-bottom'>
                 <div className='home-bottom-left'>
                     <h3>About the Uradi Encore Hotel & Suites</h3>
                     <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                     Aliquam leo diam, varius et facilisis quis, consectetur in quam.
-                    Vestibulum ante ipsum primis in faucibus orci luctus et ultrices 
-                    posuere cubilia curae
+                    Uradi Encore Resort offers luxurious accommodations
+                    amidst stunning scenery. Indulge in exquisite delicacies
+                    and enjoy outdoor games. Perfect for relaxation and adventure,
+                    our resort promises an unforgettable stay with exceptional
+                    hospitality in a serene setting.
                     </p>
                 </div>
                 <hr/>

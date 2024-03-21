@@ -7,6 +7,7 @@
 :root {
   --bgc1: #F0F8FF;
   --bgc2: #7B3F00;
+  --bgc3: #00BFFF;
 }
 .app {
   height:100vh;
@@ -22,6 +23,36 @@
 .home-top {
   height:60vh;
   width:inherit;
+  background-image: url('./images/home-image.jpg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+}
+.home-top p {
+  z-index:2;
+  color:white;
+  display:absolute;
+  font-size:4.2rem;
+  font-weight:900;
+  font-style: italic;
+  text-shadow: -1px 1px 0 #000,
+  1px 1px 0 #000,
+  1px -1px 0 #000,
+  -1px -1px 0 #000;
+  letter-spacing: 4px;
+}
+.home-top i {
+  color:white;
+  font-size:1.6rem;
+  text-shadow: -1px 1px 0 #000,
+  1px 1px 0 #000,
+  1px -1px 0 #000,
+  -1px -1px 0 #000;
+  letter-spacing: 4px;
 }
 .home-top img {
   height:inherit;
@@ -56,6 +87,9 @@
 }
 .home-center-box .fa-solid{
   font-size:30px;
+}
+.home-services-title {
+  display:none;
 }
 .home-bottom {
   height:40vh;
@@ -97,17 +131,22 @@
   width:60%;
   text-align: end;
 }
+
 /* home page */
 
 @media screen and (max-width: 800px) {
   /* home page */
 .home {
   height:190vh;
+  overflow-x: hidden;
   overflow-y: scroll;
   display:flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
+}
+.home-top {
+  justify-content: center;
 }
 .home-center {
   height:40vh;
@@ -128,8 +167,11 @@
   width:40vw;
   height:15vh;
 }
+.home-services-title {
+  display:initial;
+}
 .home-bottom {
-  height:70vh;
+  height:60vh;
   flex-direction:column-reverse;
   justify-content: space-between;
 }
