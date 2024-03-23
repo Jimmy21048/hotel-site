@@ -10,6 +10,7 @@
   --bgc3: #00BFFF;
   --bgc4: #F5F5F5;
   --bgc5: #E5E4E2;
+  --bgc6: #F6F7F9;
 }
 .app {
   height:100vh;
@@ -279,6 +280,7 @@
   font-size:1.3rem;
 }
 /* main page */
+
 /* Services header */
 .services-header {
   height:10vh;
@@ -315,6 +317,53 @@
   font-size:30px;
 }
 /* Services header */
+/* tabs */
+.tabs {
+  height:10vh;
+  width:100vw;
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  position: -webkit-sticky ;
+  position:sticky;
+  top:0;
+  background-color: var(--bgc6);
+}
+.tabs-tabs {
+  height:10vh;
+  width:max-content;
+  display:flex;
+  justify-content: space-between;
+  align-items: center;
+  gap:50px;
+  padding:0 50px;
+}
+.tabs-tabs a {
+  text-decoration:none;
+  color:black;
+  font-size: 1.2rem;
+  font-weight:600;
+  border-bottom:3px solid transparent;
+}
+.tabs-tabs a:hover, .tabs-tabs a:focus {
+  border-bottom: 3px solid black;
+}
+/* tabs */
+/* foods */
+.foods {
+  height:200vh;
+  width:100vw;
+  position:relative;
+  /* overflow-x: hidden; */
+  background-color: var(--bgc6);
+}
+.foods-bgc-img {
+  height:50vh;
+  width:100%;
+  object-fit: cover;
+}
+/* foods */
+
 
 @media screen and (max-width: 1000px) {
   /* home page */
