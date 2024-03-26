@@ -3,7 +3,7 @@ export const rooms = {
     rooms : [
     {
         type: "Single Room",
-        price: 3000,
+        price: 5000,
         time: 24,
         desc: "Accomodates a single person. One bed plus other amenities",
         props: [
@@ -15,7 +15,7 @@ export const rooms = {
     },
     {
         type: "Twin Room",
-        price:5600,
+        price:9000,
         time: 24,
         desc: "Contains two single-sized beds. A maximum of 2 guests",
         props: [
@@ -28,7 +28,7 @@ export const rooms = {
     },
     {
         type: "Double Room",
-        price: 4500,
+        price: 10000,
         time: 24,
         desc: "Contains 2 double-sized beds. Can accomodate a maximum of 4 members",
         props: [
@@ -41,7 +41,7 @@ export const rooms = {
     },
     {
         type: "Triple Room",
-        price: 4500,
+        price: 15000,
         time: 24,
         desc: "Three separate single beds. Suitable for family and friends. Accomodates 3 people",
         props: [
@@ -56,7 +56,7 @@ export const rooms = {
     },
     {
         type: "Queen room",
-        price: 7000,
+        price: 12000,
         time: 24,
         desc: "We offer queen-sized beds that can accomodate two adults comfortably. Includes couch and sitting area",
         props: [
@@ -74,7 +74,7 @@ export const rooms = {
     },
     {
         type: "Suite",
-        price: 10000,
+        price: 20000,
         time: 24,
         desc: "Multiple rooms connected connected by a single living area. Suitable for those travelling in groups",
         props: [
@@ -89,7 +89,7 @@ export const rooms = {
     }, 
     {
         type:"Family suite",
-        price: 9000,
+        price: 25000,
         time: 24,
         desc: "2 bedrooms with a small living area. Suitable for small families",
         props: [
@@ -104,7 +104,7 @@ export const rooms = {
     },
     {
         type: "Presidential suite",
-        price: 20000,
+        price: 40000,
         time: 24,
         desc: "Emphasizes comfort and luxury above everything else. More space, nicer décor, and more amenities and services than a regular suite",
         props: [
@@ -123,8 +123,8 @@ export const rooms = {
     },
     {
         type: "Board room",
-        price:30000,
-        time: 12,
+        price:45000,
+        time: "event",
         desc: "Accomodates over 30 people with enough space to expand and accomodate 30 more",
         props: [],
         image: "https://images.pexels.com/photos/159805/meeting-modern-room-conference-159805.jpeg?auto=compress&cs=tinysrgb"

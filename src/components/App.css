@@ -583,10 +583,22 @@
 .activity {
   height:70vh;
   width:800px;
+  max-width:95vw;
   display:flex;
+  /* padding-bottom:10vh; */
+  border-bottom: 1px solid gray;
+}
+.activity:nth-of-type(even) {
+  flex-direction: row-reverse;
 }
 .activity-info {
   width:50%;
+  display:flex;
+  gap:20px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding:20px;
 }
 .activity img {
   width:50%;
@@ -791,7 +803,10 @@
 
 /* food items */
 .food-items {
-  justify-content: center;
+  display:flex;
+  flex-direction: column;
+  /* justify-content: center; */
+  align-items: center;
 }
 .food {
   max-width:95vw;
@@ -871,6 +886,27 @@
   height:5vh;
   width:150px;
 }
+
+/* activities */
+.activity {
+  flex-direction: column-reverse;
+  height:max-content;
+  gap:20px;
+  padding-bottom:10vh;
+  border-bottom: 1px solid gray;
+}
+.activity:nth-of-type(even) {
+  flex-direction: column-reverse;
+}
+.activity-info {
+  width:100%;
+  padding:10px;
+  height:max-content;
+}
+.activity img {
+  width:100%;
+}
+/* activities */
 }
 @media screen and (max-width:550px) {
   .main-header h2 {
