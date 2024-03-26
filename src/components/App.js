@@ -7,6 +7,7 @@ import Foods from './Foods';
 import Rooms from './Rooms';
 import Games from './Games';
 import Scenary from './Scenary';
+import RoomDetails from './RoomDetails';
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
         <Route path='/main/rooms' element = {<Rooms />} />
         <Route path='/main/games' element = {<Games />} />
         <Route path='/main/scenary' element = {<Scenary />} />
+        <Route path='/main/rooms/:id' element = {<RoomDetails />} />
       </Routes>
     </div>
   );
