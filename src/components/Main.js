@@ -22,10 +22,10 @@ export default function Main() {
             <div className="main-bottom">
                 <h4>Our deals</h4>
                 <div className="main-bottom-body">
-                    <Link to="/main/foods" ><img loading="lazy" src="./images/foods.jpg" alt="delicacies" /> <p>Delicacies</p></Link>
-                    <Link to="/main/rooms" ><img loading="lazy"  src="./images/rooms.jpg" alt="hotel rooms" /> <p>Rooms</p></Link>
-                    <Link to="/main/games" ><img loading="lazy"  src="./images/games.jpg" alt="games" /> <p>Games</p></Link>
-                    <Link to="/main/scenary" ><img loading="lazy"  src="./images/scenary.jpg" alt="scenes" /> <p>Scenary</p></Link>
+                    <Link to="/main/foods" ><img loading="lazy" src="https://images.pexels.com/photos/2641886/pexels-photo-2641886.jpeg?auto=compress&cs=tinysrgb&w=600" alt="delicacies" /> <p>Menu</p></Link>
+                    <Link to="/main/rooms" ><img loading="lazy"  src="https://images.pexels.com/photos/3688261/pexels-photo-3688261.jpeg?auto=compress&cs=tinysrgb&w=600" alt="hotel rooms" /> <p>Rooms</p></Link>
+                    <Link to="/main/games" ><img loading="lazy"  src="https://images.pexels.com/photos/1076081/pexels-photo-1076081.jpeg?auto=compress&cs=tinysrgb&w=600" alt="games" /> <p>Activities</p></Link>
+                    {/* <Link to="/main/scenary" ><img loading="lazy"  src="./images/scenary.jpg" alt="scenes" /> <p>Scenary</p></Link> */}
                 </div>
             </div>
         </div>

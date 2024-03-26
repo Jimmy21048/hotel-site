@@ -124,8 +124,6 @@
 .home-bottom-left {
   width:60%;
   display:flex;
-  /* flex-direction: column; */
-  /* justify-content: center; */
   justify-content: space-between;
   align-items: center;
   gap:20px;
@@ -201,10 +199,6 @@
   font-weight:700;
   color:white;
   text-align: center;
-  /* text-shadow: -1px 1px 0 #000,
-  1px 1px 0 #000,
-  1px -1px 0 #000,
-  -1px -1px 0 #000; */
 }
 .main-top-body span {
   width:400px;
@@ -284,6 +278,7 @@
 /* Services header */
 .services-header {
   height:10vh;
+  width:100vw;
   display:flex;
   justify-content: space-between;
   align-items:center;
@@ -311,7 +306,7 @@
   border-radius:10px;
 }
 .services-header a:hover {
-  background-color: var(--bgc4);
+  background-color: var(--bgc5);
 }
 .services-header a .fa-solid {
   font-size:30px;
@@ -350,8 +345,9 @@
 }
 /* tabs */
 /* foods */
-.foods, .games, .scenary{
-  height:200vh;
+.foods {
+  height:max-content;
+  padding-bottom:5vh;
   width:100vw;
   position:relative;
   background-color: var(--bgc6);
@@ -361,15 +357,16 @@
   width:100%;
   object-fit: cover;
 }
-#Breakfast, #Lunch {
+#hot-beverages, #main-course, #dessert, #sandwich, #salad {
   height:max-content;
   padding-top:10vh;
+  margin-bottom:5vh;
 }
-#Breakfast h3, #Lunch h3 {
+#hot-beverages h3, #main-course h3, #dessert h3, #sandwich h3, #salad h3 {
   text-align: center;
   height:5vh;
 }
-/*  */
+/* food items */
 .food-items {
   height:max-content;
   display:grid;
@@ -380,19 +377,28 @@
 }
 .food {
   width:300px;
-  height:100px;
+  height:150px;
   box-shadow: 1px 1px 1px 1px black;
   border-radius: 10px;
   display:flex;
 }
 .food-info {
-  width:55%;
-  height:inherit;
-}
-.food img {
   width:45%;
   height:inherit;
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.food-info p {
+  text-align:center;
+}
+.food img {
+  width:55%;
+  height:inherit;
   object-fit: cover;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
 }
 /*  */
 
@@ -422,12 +428,16 @@
   padding:5px;
   border-radius: 10px;
 }
+.room:hover {
+  background-color: var(--bgc5);
+}
 .room h3 {
   margin:5px 0;
 }
 .room img {
   height:200px;
   width:inherit;
+  object-fit: cover;
 }
 .room .room-props {
   width:inherit;
@@ -448,11 +458,10 @@
   padding:5px 10px;
   color:black;
 }
+/* rooms */
 /* room details */
 .room-details {
   height:160vh;
-  /* overflow:hidden; */
-  /* overflow-y: scroll; */
   width:100vw;
   display: flex;
   flex-direction: column;
@@ -557,7 +566,34 @@
   font-weight:600;
   cursor:pointer;
 }
-
+/* activities */
+.games {
+  height:max-content;
+  background-color: var(--bgc6);
+}
+#activities {
+  height:max-content;
+  width:100vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap:50px;
+  padding-top:10vh;
+}
+.activity {
+  height:70vh;
+  width:800px;
+  display:flex;
+}
+.activity-info {
+  width:50%;
+}
+.activity img {
+  width:50%;
+  height:inherit;
+  object-fit: cover;
+}
+/* activities */
 
 @media screen and (max-width: 1000px) {
   /* home page */
@@ -648,7 +684,7 @@
 }
 
 .main-bottom {
-  height:200vh;
+  height:160vh;
   background-color: var(--bgc1);
   padding-bottom:10vh;
 }
@@ -658,7 +694,7 @@
   font-size:1.5rem;
 }
 .main-bottom-body {
-  height:180vh;
+  height:140vh;
   max-width:80vw;
   flex-direction: column;
   align-items:center;
@@ -727,6 +763,41 @@
   font-size:30px;
 }
 /* Services header */
+
+/* tabs */
+.tabs {
+  padding:0 5px;
+}
+.tabs-tabs {
+  justify-content: center;
+  width:100%;
+  gap:20px;
+  padding:0;
+  overflow-x:scroll;
+}
+.tabs-tabs a {
+  font-size: 0.9rem;
+}
+/* tabs */
+
+/* foods */
+.foods, .games, .scenary{
+  height:max-content;
+}
+#hot-beverages, #main-course, #dessert {
+  height:max-content;
+}
+/* foods */
+
+/* food items */
+.food-items {
+  justify-content: center;
+}
+.food {
+  max-width:95vw;
+}
+/* food-items */
+
 /* rooms */
 #rooms {
   padding:10vh 10px;
@@ -749,7 +820,7 @@
 .room-props p {
   width:390px;
 }
-
+/* rooms */
 
 /* room details */
 .room-details {

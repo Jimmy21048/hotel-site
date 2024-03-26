@@ -1,4 +1,4 @@
-import { Link, useParams } from "react-router-dom"
+import { useParams } from "react-router-dom"
 // import useFetch from "./useFetch";
 import { rooms } from "./roomsArray";
 
@@ -37,7 +37,7 @@ export default function RoomDetails() {
                         <input type="date"/>
                     </label>
                     <label>
-                        Guests
+                        People
                         <input type="number" value={0} />
                     </label>
                     <button>Book Now</button>

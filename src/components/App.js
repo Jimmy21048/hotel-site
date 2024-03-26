@@ -6,7 +6,6 @@ import Main from './Main';
 import Foods from './Foods';
 import Rooms from './Rooms';
 import Games from './Games';
-import Scenary from './Scenary';
 import RoomDetails from './RoomDetails';
 
 function App() {
@@ -18,7 +17,6 @@ function App() {
         <Route path='/main/foods' element = {<Foods />} />
         <Route path='/main/rooms' element = {<Rooms />} />
         <Route path='/main/games' element = {<Games />} />
-        <Route path='/main/scenary' element = {<Scenary />} />
         <Route path='/main/rooms/:id' element = {<RoomDetails />} />
       </Routes>
     </div>

@@ -17,7 +17,7 @@ export default function Rooms() {
                                 <h3>{room.type}</h3>
                                 <img src={room.image} alt="room-type" />
                                 <div className="room-props">
-                                    <h4>{room.price}$ per night</h4>
+                                    <h4>{room.price}$ per {room.time} hrs</h4>
                                     <p>{room.desc}</p>
                                 </div>
                             </Link>
