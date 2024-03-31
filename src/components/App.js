@@ -8,6 +8,7 @@ import Rooms from './Rooms';
 import Games from './Games';
 import RoomDetails from './RoomDetails';
 import About from './About';
+import Book from './Book';
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
         <Route path='/main/games' element = {<Games />} />
         <Route path='/main/rooms/:id' element = {<RoomDetails />} />
         <Route path='/about' element = {<About />} />
+        <Route path='/booking' element = {<Book />} />
       </Routes>
     </div>
   );

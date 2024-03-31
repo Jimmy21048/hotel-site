@@ -11,7 +11,7 @@ export default function Rooms() {
             <Tabs tabItems = {['rooms']} />
             <div id="rooms">
                 {
-                    rooms.rooms.map((room) => {
+                    rooms.map((room) => {
                         return (
                             <Link to={"/main/rooms/" + room.type} className="room" key={room.type}>
                                 <h3>{room.type}</h3>

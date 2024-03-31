@@ -5,7 +5,7 @@ import { rooms } from "./roomsArray";
 export default function RoomDetails() {
 
     const { id } = useParams();
-    let theRoom = rooms.rooms.filter((room) => {
+    let theRoom = rooms.filter((room) => {
         return room.type === id;
     })
     theRoom = theRoom[0];
@@ -26,19 +26,22 @@ export default function RoomDetails() {
                     }
                 </ul>
                 <div className="room-desc">{theRoom.desc}</div>
+                <p style={{color:"red"}}>Checkouts must be done before the midnight of the set date!</p>
                 <h4>Book Room</h4>
-                <form>
+                <form action="/booking" method="get">
+                    <input hidden type="text" value={theRoom.type} name="type" />
+                    <input hidden type="text" value={theRoom.price} name="price" />
                     <label>
                         Arrival Date
-                        <input type="date" />
+                        <input type="date" name="arrive" required />
                     </label>
                     <label>
                         Departure Date
-                        <input type="date"/>
+                        <input type="date" name="leave" required />
                     </label>
                     <label>
                         People
-                        <input type="number" value={0} />
+                        <input type="number" defaultValue={1} name="guests" required />
                     </label>
                     <button>Book Now</button>
                 </form>

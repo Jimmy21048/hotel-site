@@ -1,6 +1,5 @@
 
-export const rooms = {
-    rooms : [
+export const rooms = [
     {
         type: "Single Room",
         price: 5000,
@@ -85,7 +84,7 @@ export const rooms = {
             "Bathroom per room",
             "Shared kitchenette"
         ],
-        image: "https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcTE4IWoM5ZhYPxbulG4_yiv_xNVbL0W2cHtkzYFAm3JTIhj6SXO"
+        image: "https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcTE4IWoM5ZhYPxbulG4_yiv_xNVbL0W2cHtkzYFAm3JTIhj6SXO&w=800"
     }, 
     {
         type:"Family suite",
@@ -129,5 +128,4 @@ export const rooms = {
         props: [],
         image: "https://images.pexels.com/photos/159805/meeting-modern-room-conference-159805.jpeg?auto=compress&cs=tinysrgb"
     }
-    ]
-}
+ ]
