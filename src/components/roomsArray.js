@@ -2,6 +2,7 @@
 export const rooms = [
     {
         type: "Single Room",
+        rooms: [101, 102, 103, 104, 105],
         price: 5000,
         time: 24,
         desc: "Accomodates a single person. One bed plus other amenities",
@@ -14,6 +15,7 @@ export const rooms = [
     },
     {
         type: "Twin Room",
+        rooms: [201, 202, 203, 204, 205],
         price:9000,
         time: 24,
         desc: "Contains two single-sized beds. A maximum of 2 guests",
@@ -27,6 +29,7 @@ export const rooms = [
     },
     {
         type: "Double Room",
+        rooms: [301, 302, 303, 304, 305],
         price: 10000,
         time: 24,
         desc: "Contains 2 double-sized beds. Can accomodate a maximum of 4 members",
@@ -40,6 +43,7 @@ export const rooms = [
     },
     {
         type: "Triple Room",
+        rooms: [401, 402, 403, 404, 405],
         price: 15000,
         time: 24,
         desc: "Three separate single beds. Suitable for family and friends. Accomodates 3 people",
@@ -55,6 +59,7 @@ export const rooms = [
     },
     {
         type: "Queen room",
+        rooms: [501, 502, 503, 504, 505],
         price: 12000,
         time: 24,
         desc: "We offer queen-sized beds that can accomodate two adults comfortably. Includes couch and sitting area",
@@ -73,6 +78,7 @@ export const rooms = [
     },
     {
         type: "Suite",
+        rooms: [601, 602, 603, 604, 605],
         price: 20000,
         time: 24,
         desc: "Multiple rooms connected connected by a single living area. Suitable for those travelling in groups",
@@ -88,6 +94,7 @@ export const rooms = [
     }, 
     {
         type:"Family suite",
+        rooms: [701, 702, 703, 704, 705],
         price: 25000,
         time: 24,
         desc: "2 bedrooms with a small living area. Suitable for small families",
@@ -103,6 +110,7 @@ export const rooms = [
     },
     {
         type: "Presidential suite",
+        rooms: [801, 802, 803, 804, 805],
         price: 40000,
         time: 24,
         desc: "Emphasizes comfort and luxury above everything else. More space, nicer décor, and more amenities and services than a regular suite",
@@ -122,6 +130,7 @@ export const rooms = [
     },
     {
         type: "Board room",
+        rooms: [901, 902, 903, 904, 905],
         price:45000,
         time: "event",
         desc: "Accomodates over 30 people with enough space to expand and accomodate 30 more",

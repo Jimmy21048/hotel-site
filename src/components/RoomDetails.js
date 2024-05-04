@@ -1,14 +1,18 @@
 import { useParams } from "react-router-dom"
 // import useFetch from "./useFetch";
 import { rooms } from "./roomsArray";
+// import axios from "axios";
 
 export default function RoomDetails() {
-
     const { id } = useParams();
     let theRoom = rooms.filter((room) => {
         return room.type === id;
     })
     theRoom = theRoom[0];
+    // const data = {type: theRoom.type};
+    const date = new Date(Date.now());
+    const today = date.getFullYear() + "-" + (date.getMonth()+1) + "-" + date.getDate();
+    
     return (
         <div className="room-details">
             <header className="room-details-header">
@@ -26,24 +30,26 @@ export default function RoomDetails() {
                     }
                 </ul>
                 <div className="room-desc">{theRoom.desc}</div>
-                <p style={{color:"red"}}>Checkouts must be done before the midnight of the set date!</p>
+                <a className="link" href="/account">View my Bookings</a>
+                <p className="msgs" style={{color:"red"}}>Checkouts must be done before the midnight of the set date!</p>
                 <h4>Book Room</h4>
                 <form action="/booking" method="get">
                     <input hidden type="text" value={theRoom.type} name="type" />
-                    <input hidden type="text" value={theRoom.price} name="price" />
+                    <input hidden type="number" value={theRoom.price} name="price" />
                     <label>
-                        Arrival Date
-                        <input type="date" name="arrive" required />
+                        Check In
+                        <input type="date"  name="arrive" required />
                     </label>
                     <label>
-                        Departure Date
-                        <input type="date" name="leave" required />
+                        Check Out
+                        <input type="date"  name="leave" required />
                     </label>
                     <label>
                         People
                         <input type="number" defaultValue={1} name="guests" required />
                     </label>
                     <button>Book Now</button>
+                    
                 </form>
             </div>
         </div>
