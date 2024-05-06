@@ -53,7 +53,7 @@ export default function Book() {
     
     const onSubmit = (data) => {
         if(window.confirm("Confirm booking")) {          
-            axios.post('http://localhost:3001/account', data, {
+            axios.post('https://uradi-encore-server.onrender.com/account', data, {
                 headers: {
                     accessToken: localStorage.getItem("accessToken")
                 }

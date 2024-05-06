@@ -15,7 +15,7 @@ function Login() {
   const { setAuthState } = useContext(AuthContext);
 
   const onSubmit = (data) => {
-    axios.post('http://localhost:3001/login', data)
+    axios.post('https://uradi-encore-server.onrender.com/login', data)
     .then((response) => {
       if(response.data.error) {
         setLoginMessage(response.data.error);
