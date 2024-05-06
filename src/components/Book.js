@@ -36,7 +36,8 @@ export default function Book() {
     }
 
     useEffect(() => {
-        axios.get("http://localhost:3001/details/room", {
+
+        axios.get("https://uradi-encore-server.onrender.com/details/room", {
             headers: {
                 accessToken: localStorage.getItem("accessToken"),
                 roomType: type,
@@ -47,7 +48,7 @@ export default function Book() {
         .then((response) => {
             setAvailable(response.data);
         })
-    }, []);
+    }, [available]);
 
 
     
