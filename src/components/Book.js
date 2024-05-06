@@ -48,7 +48,7 @@ export default function Book() {
         .then((response) => {
             setAvailable(response.data);
         })
-    }, [available]);
+    }, []);
 
 
     
