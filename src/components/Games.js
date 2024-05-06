@@ -6,13 +6,12 @@ export default function Games() {
     return (
         <div className="games">
             <Services />
-            {/* <img className="categories-bgc-img" src="../images/games2.png" alt="games-bgc" /> */}
             <Tabs tabItems = {['activities']} />
             <div id="activities">
                 {
                     activities.map((activity) => {
                         return (
-                            <div className="activity">
+                            <div className="activity" key={activities.indexOf(activity)}>
                                 <div className="activity-info">
                                     <h3>{activity.name}</h3>
                                     <p>{activity.desc}</p>

@@ -30,7 +30,7 @@ export default function Foods() {
                     {
                         bFast.map((food) => {
                             return (
-                                <div className="food">
+                                <div className="food" key={bFast.indexOf(food)}>
                                     <div className="food-info">
                                         <p>{food.name}</p>
                                         <p>Ksh {food.price}</p>
@@ -48,7 +48,7 @@ export default function Foods() {
                     {
                         lunch.map((food) => {
                             return (
-                                <div className="food">
+                                <div className="food" key={lunch.indexOf(food)}>
                                     <div className="food-info">
                                         <p>{food.name}</p>
                                         <p>{food.price}</p>
@@ -66,7 +66,7 @@ export default function Foods() {
                     {
                         dessert.map((food) => {
                             return (
-                                <div className="food">
+                                <div className="food" key={dessert.indexOf(food)}>
                                     <div className="food-info">
                                         <p>{food.name}</p>
                                         <p>Ksh {food.price}</p>
@@ -84,7 +84,7 @@ export default function Foods() {
                     {
                         sandwich.map((food) => {
                             return (
-                                <div className="food">
+                                <div className="food" key={sandwich.indexOf(food)}>
                                     <div className="food-info">
                                         <p>{food.name}</p>
                                         <p>Ksh {food.price}</p>
@@ -102,7 +102,7 @@ export default function Foods() {
                     {
                         salad.map((food) => {
                             return (
-                                <div className="food">
+                                <div className="food" key={salad.indexOf(food)}>
                                     <div className="food-info">
                                         <p>{food.name}</p>
                                         <p>Ksh {food.price}</p>

@@ -35,6 +35,9 @@ export default function Book() {
         total: price
     }
 
+    //http://localhost:3001
+    //https://uradi-encore-server.onrender.com
+
     useEffect(() => {
 
         axios.get("https://uradi-encore-server.onrender.com/details/room", {
@@ -46,7 +49,13 @@ export default function Book() {
             }
         })
         .then((response) => {
-            setAvailable(response.data);
+            if(response.data.error) {
+                setLoginState("please log in");
+                history('/main');
+            } else {
+                setAvailable(response.data);
+            }
+            
         })
     }, []);
 

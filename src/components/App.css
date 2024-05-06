@@ -885,17 +885,22 @@
   background-color: var(--bgc6);
 }
 .user-name {
-  border:1px solid;
-  height:120px;
-  width:120px;
+  border:1px solid var(--bgc5);
+  font-size:2.5rem;
+  font-weight:800;
+  height:90px;
+  width:90px;
   border-radius: 50%;
   display:flex;
   flex-direction:column;
   justify-content: center;
   align-items: center;
 }
-.user-name p, .user-email {
-  font-size: 1.2rem;
+.user-email {
+  padding:8px;
+  display: flex;
+  flex-direction:column;
+  font-size: 1.3rem;
   font-weight: 600;
 }
 .account-body-active {
@@ -1282,10 +1287,15 @@
   height:10vh;
 }
 /* login */
+
 /* account */
 .account-details {
-  flex-direction:column;
-  justify-content:space-around;
+  padding-left:8px;
+  gap:16px;
+}
+.user-name {
+  height:100px;
+  width:100px;
 }
 .account-body-active {
   padding:2px;

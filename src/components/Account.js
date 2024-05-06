@@ -11,24 +11,26 @@ function Account() {
   const history = useNavigate();
   const { setLoginState } = useContext(AuthContext);
 
+  //http://localhost:3001
+  //https://uradi-encore-server.onrender.com
+
   useEffect(() => {
-      axios.get('https://uradi-encore-server.onrender.com/account', {
+    axios.get('https://uradi-encore-server.onrender.com/account', {
         headers: {
             accessToken: localStorage.getItem("accessToken")
         }
     })
     .then((response) => {
-      if(response.data.error) {
+      if(response.data.error || response.error) {
         setLoginState("Please log in");
         history('/main');
       } else {
-
         setUserData(response.data.user[0]);
         setBookings(response.data.userData); 
       }
       
     })
-  }, [bookings]);
+  }, []);
 
 
   
@@ -39,13 +41,11 @@ function Account() {
       <hr />
       <div className='account-details'>
         <div className='user-name'>
-          <p>{ userData.user_fname}</p>
-          <p>{ userData.user_lname }</p>
+          <p>{ userData.initials}</p>
         </div>
         <div className='user-email'>
-          {
-            userData.user_email
-          }
+          <p>{ userData.user_email }</p>
+          <p>{ userData.user_fname} { userData.user_lname} </p>
         </div>
       </div>
             <h3>Active Bookings</h3>

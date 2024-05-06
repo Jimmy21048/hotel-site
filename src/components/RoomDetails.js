@@ -9,9 +9,6 @@ export default function RoomDetails() {
         return room.type === id;
     })
     theRoom = theRoom[0];
-    // const data = {type: theRoom.type};
-    const date = new Date(Date.now());
-    const today = date.getFullYear() + "-" + (date.getMonth()+1) + "-" + date.getDate();
     
     return (
         <div className="room-details">
