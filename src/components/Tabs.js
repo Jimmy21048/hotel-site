@@ -1,8 +1,7 @@
 
-// import { Link } from "react-router-dom"
-export default function Tabs({category, tabItems}) {
+export default function Tabs({category, tabItems, checkFood}) {
     return (
-        <div className="tabs">
+        <div className="tabs"style={{visibility: checkFood ? "hidden": "initial"}}>
             <div className="tabs-tabs">
                 {
                     tabItems.map((item) => {

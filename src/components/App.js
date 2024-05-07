@@ -22,11 +22,9 @@ function App() {
   const [loginState, setLoginState] = useState('');
   const username = useRef({fname: '', lname: ''});
 
-  //http://localhost:3001
-  //https://uradi-encore-server.onrender.com
-
   useEffect(() => {
-    axios.get("https://uradi-encore-server.onrender.com/login/auth", {
+    // axios.get("http://localhost:3001/login/auth", {
+    axios.get("https://uradi-encore-server.onrender.com/auth", {
       headers : {
         accessToken: localStorage.getItem("accessToken")
       }

@@ -401,6 +401,66 @@
   border-top-right-radius: 10px;
   border-bottom-right-radius: 10px;
 }
+.food-clicked {
+  position: fixed;
+  left: 0;
+  right: 0;
+  top:20vh;
+  width:650px;
+  height:400px;
+  margin:0 auto;
+  border-radius: 20px;
+  z-index: 999;
+  background-color: var(--bgc5);
+  color:black;
+  padding:16px;
+  display:flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.food-clicked-header {
+  height:80px;
+  display:flex;
+  justify-content: space-between;
+}
+.food-clicked-header button {
+  height:40px;
+  width:40px;
+  border-radius: 50%;
+  border:1px solid rgb(194, 189, 189);
+  cursor:pointer;
+}
+.food-clicked-header button:hover {
+  background-color: black;
+  color:white;
+}
+.food-clicked-body {
+  height:150px;
+}
+.food-clicked-body img {
+  height:inherit;
+  width:45%;
+}
+.food-clicked-footer {
+  height:80px;
+  display:flex;
+  justify-content: space-between;
+  align-items:end;
+}
+.food-clicked-footer button {
+  height:5vh;
+  width:100px;
+  border-radius: 10px;
+  border:none;
+  background-color: var(--bgc3);
+  cursor:pointer;
+}
+.courtesy {
+  height:50px;
+  text-align: center;
+  font-size:1.1rem;
+  font-weight:700;
+}
 /*  */
 
 /* foods */
@@ -1122,6 +1182,11 @@
 }
 #hot-beverages, #main-course, #dessert {
   height:max-content;
+}
+.food-clicked {
+  top:25vh;
+  max-width: 90vw;
+  max-height:80vh;
 }
 /* foods */
 

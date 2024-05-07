@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom"
-export default function Services() {
+export default function Services({ checkFood }) {
     return (
         <header className="services-header">
             <Link to="/main"><i className="fa-solid fa-circle-arrow-left"></i></Link>
