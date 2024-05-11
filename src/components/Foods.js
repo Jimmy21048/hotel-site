@@ -1,12 +1,17 @@
 import Services from "./ServicesHeader"
 import Tabs from "./Tabs";
 import { foods } from "./foodsArray";
-import { useState} from 'react'
+import { useState, useContext, useEffect } from 'react'
+import { AuthContext } from "../helpers/AuthContext";
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 export default function Foods() {
     const [checkFood, setCheckFood] = useState(false);
     const [selectedFood, setSelectedFood] = useState();
-    const [yes, setYes] = useState(0);
+    const { username } = useContext(AuthContext);
+    const [bookedRooms, setBookedRooms] = useState();
+    const history = useNavigate();
 
     const bFast =foods.filter((food) => {
         return food.category.toLowerCase() === "beverage"               
@@ -34,8 +39,39 @@ export default function Foods() {
             setSelectedFood(item[0]);
         }
     }
+
+    useEffect(() => {
+        axios.get("http://localhost:3001/foods", {
+        // axios.post('https://uradi-encore-server.onrender.com/foods', {
+            headers: {
+                accessToken: localStorage.getItem("accessToken")
+            }
+        }).then((response) => {
+            setBookedRooms(response.data);         
+        })
+    }, [])
+    
+    function onSubmit() {
+        const data = {};
+        data.foodName = selectedFood.name;
+        data.foodPrice = selectedFood.price;
+        data.room = document.getElementById("theRoom").value;
+
+            if(window.confirm("Confirm food order to room " + data.room)) {
+                axios.post("http://localhost:3001/foods/order", data, {
+                    // axios.post('https://uradi-encore-server.onrender.com/account', data, {
+                    headers: {
+                        accessToken: localStorage.getItem("accessToken")
+                    }
+                }).then((response) => {
+                    console.log(response);
+                    setCheckFood(false);
+                    // history('/account');
+                })
+            }
+    }
     return (
-        <div className="foods" onClick={ checkFood ? () => setCheckFood(false) : () => setYes(1)}>
+        <div className="foods">
             <Services />
             <img className="categories-bgc-img" src="../images/home11.png" alt="foods-bgc" />
             <Tabs       
@@ -59,16 +95,35 @@ export default function Foods() {
                         </div>
                         <div  className="food-clicked-body">
                             <img src={selectedFood.img} alt={selectedFood.name} />
+                            {
+                                bookedRooms.length > 0 ? 
+                                <select required name="roomNo" id="theRoom">
+                                {
+                                    bookedRooms.map((room) => {
+                                        return (
+                                            <option key={room.room_no} value={room.room_no}>Room {room.room_no}</option>
+                                        )
+                                    })
+                                }
+                                </select> :
+                                <p style={{color: "red"}}>Not booked in</p>
+                            }
                         </div>
+                        <i className="courtesy">Hello { username.current.fname }</i>
                         <i className="courtesy">Courtesy of Uradi Encore</i>
                         <div className="food-clicked-footer">
-                            <form>
-                                <input type="text" hidden value={selectedFood.name} />
-                                <input type="number" hidden value={selectedFood.price} />
-                                <button>ORDER</button>
-                            </form>
-
-                            <button>*****</button>
+                            {
+                                bookedRooms.length > 0 ? <button className="designated-button" onClick={onSubmit}>ORDER</button> :
+                                <a href="/main/rooms" className="designated-button">Book a room</a>
+                            }
+            
+                            <div>
+                            <i className="fa-regular fa-star"></i>
+                            <i className="fa-regular fa-star"></i>
+                            <i className="fa-regular fa-star"></i>
+                            <i className="fa-regular fa-star"></i>
+                            <i className="fa-regular fa-star"></i>
+                            </div>
                         </div>
                     </div> :
                     ''

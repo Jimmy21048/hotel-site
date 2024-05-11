@@ -10,6 +10,7 @@ export default function Book() {
     const history = useNavigate();
     const { loginState, setLoginState } = useContext(AuthContext);
     const [available, setAvailable] = useState();
+    const [myRoom, setMyRoom] = useState(0);
 
     const params = new URLSearchParams(window.location.search);
     const arrive =  params.get("arrive");
@@ -32,13 +33,13 @@ export default function Book() {
         leave: leave,
         people: people,
         days: days,
-        total: price
+        total: price,
     }
 
     useEffect(() => {
 
-        // axios.get("http://localhost:3001/details/room", {
-        axios.get("https://uradi-encore-server.onrender.com/details/room", {
+        axios.get("http://localhost:3001/details/room", {
+        // axios.get("https://uradi-encore-server.onrender.com/details/room", {
             headers: {
                 accessToken: localStorage.getItem("accessToken"),
                 roomType: type,
@@ -47,22 +48,23 @@ export default function Book() {
             }
         })
         .then((response) => {
+            console.log(response);
             if(response.data.error) {
                 setLoginState("please log in");
                 history('/main');
             } else {
-                setAvailable(response.data);
+                setAvailable(response.data.msg);
+                setMyRoom(response.data.room);
             }
             
         })
     }, []);
-
-
     
     const onSubmit = (data) => {
-        if(window.confirm("Confirm booking")) {          
-            // axios.post('http://localhost:3001/account', data, {
-            axios.post('https://uradi-encore-server.onrender.com/account', data, {
+        if(window.confirm("Confirm booking")) {     
+            data.room = myRoom;
+            axios.post('http://localhost:3001/account', data, {
+            // axios.post('https://uradi-encore-server.onrender.com/account', data, {
                 headers: {
                     accessToken: localStorage.getItem("accessToken")
                 }
@@ -86,12 +88,13 @@ export default function Book() {
         }
     }
 
+
     return (
         <div className="bookings">
             <Services />
 
             <div className="bookings-body">
-                <h3>History</h3>
+                <h3>Details</h3>
                 <div className="active-bookings">
                     <Formik initialValues={initialValues} onSubmit={onSubmit}>
                         <Form>
@@ -132,7 +135,7 @@ export default function Book() {
                             name="total"/>
                         </label>
                         <div className="label-status">Status:  
-                            <div>{available}</div>
+                            <div>{available + ":" + myRoom}</div>
                         </div>
                         {
                             available === "Room available" ? <button type="submit">Book</button> :

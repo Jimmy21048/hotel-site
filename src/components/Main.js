@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom"
 import { AuthContext } from "../helpers/AuthContext"
 import { useContext, useEffect } from "react"
+import axios from "axios";
 
 export default function Main() {
 
@@ -10,7 +11,15 @@ export default function Main() {
         setTimeout(() => {
             setLoginState("");
         }, 4000);
+
+        axios.post("http://localhost:3001/account/bookings", {
+            headers: {
+                accessToken: localStorage.getItem("accessToken")
+            }
+        })
     }, [])
+
+
     return (
         <div className="main">
             <div className="main-top">
