@@ -21,7 +21,7 @@ function Account() {
     .then((response) => {
       if(response.data.error || response.error) {
         setLoginState("Please log in");
-        history('/main');
+        history('/');
       } else {
         setUserData(response.data.user[0]);
         setBookings(response.data.userData); 

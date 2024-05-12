@@ -73,7 +73,6 @@ export default function Foods() {
     return (
         <div className="foods">
             <Services />
-            <img className="categories-bgc-img" src="../images/home11.png" alt="foods-bgc" />
             <Tabs       
              checkFood={checkFood}
              tabItems = {['hot-beverages', 'main-course', 'dessert']} />

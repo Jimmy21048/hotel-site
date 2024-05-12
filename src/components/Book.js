@@ -51,7 +51,7 @@ export default function Book() {
             console.log(response);
             if(response.data.error) {
                 setLoginState("please log in");
-                history('/main');
+                history('/');
             } else {
                 setAvailable(response.data.msg);
                 setMyRoom(response.data.room);
@@ -72,7 +72,7 @@ export default function Book() {
             .then((response) => {
                 if(response.data.error) {
                     setLoginState("please log in");
-                    history('/main');
+                    history('/');
                 } else if(response.data.message) {
                     setLoginState(response.data.message);
 
@@ -134,11 +134,15 @@ export default function Book() {
                             value={price * days} 
                             name="total"/>
                         </label>
-                        <div className="label-status">Status:  
-                            <div>{available + ":" + myRoom}</div>
+                        <div className="label-status">Status: 
+                            {
+                                available > 0 ? <div>Room {available} available</div> :
+                                <div>Room not Available</div>
+                            } 
+                            
                         </div>
                         {
-                            available === "Room available" ? <button type="submit">Book</button> :
+                            available > 0 ? <button type="submit">Book</button> :
                             ''
                         }
                         <a href={"/main/rooms/" + type}>Change Booking</a>

@@ -40,13 +40,12 @@ function App() {
         })
       }
     })
-  }, [])
+  }, [authState])
   return (
     <div className="app">
       <AuthContext.Provider value={{authState, setAuthState, loginState, setLoginState, username}}>
       <Routes>
         <Route path='/' element= {<Home />} />
-        <Route path='/main' element = {<Main />} />
         <Route path='/signup' element = {<Signup />} />
         <Route path='/login' element = {<Login />} />
         <Route path='/main/foods' element = {<Foods />} />
