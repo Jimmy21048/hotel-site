@@ -7,7 +7,7 @@ export default function Rooms() {
     return (
         <div className="rooms">
             <Services />
-            <img className="categories-bgc-img" src="../images/rooms22.png" alt="rooms-bgc" />
+            {/* <img className="categories-bgc-img" src="../images/rooms22.png" alt="rooms-bgc" />  */}
             <Tabs tabItems = {['rooms']} />
             <div id="rooms">
                 {

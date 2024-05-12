@@ -37,8 +37,8 @@ export default function Book() {
 
     useEffect(() => {
 
-        // axios.get("http://localhost:3001/details/room", {
-        axios.get("https://uradi-encore-server.onrender.com/details/room", {
+        axios.get("http://localhost:3001/details/room", {
+        // axios.get("https://uradi-encore-server.onrender.com/details/room", {
             headers: {
                 accessToken: localStorage.getItem("accessToken"),
                 roomType: type,
@@ -49,7 +49,7 @@ export default function Book() {
         .then((response) => {
             if(response.data.error) {
                 setLoginState("please log in");
-                history('/main');
+                history('/');
             } else {
                 setAvailable(response.data);
             }
@@ -61,8 +61,8 @@ export default function Book() {
     
     const onSubmit = (data) => {
         if(window.confirm("Confirm booking")) {          
-            // axios.post('http://localhost:3001/account', data, {
-            axios.post('https://uradi-encore-server.onrender.com/account', data, {
+            axios.post('http://localhost:3001/account', data, {
+            // axios.post('https://uradi-encore-server.onrender.com/account', data, {
                 headers: {
                     accessToken: localStorage.getItem("accessToken")
                 }
@@ -70,7 +70,7 @@ export default function Book() {
             .then((response) => {
                 if(response.data.error) {
                     setLoginState("please log in");
-                    history('/main');
+                    history('/');
                 } else if(response.data.message) {
                     setLoginState(response.data.message);
 
@@ -131,11 +131,15 @@ export default function Book() {
                             value={price * days} 
                             name="total"/>
                         </label>
-                        <div className="label-status">Status:  
-                            <div>{available}</div>
+                        <div className="label-status">Status: 
+                            {
+                                available > 0 ? <div>Room {available} available</div> :
+                                <div>Room not Available</div>
+                            } 
+                            
                         </div>
                         {
-                            available === "Room available" ? <button type="submit">Book</button> :
+                            available > 0 ? <button type="submit">Book</button> :
                             ''
                         }
                         <a href={"/main/rooms/" + type}>Change Booking</a>

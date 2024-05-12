@@ -2,7 +2,7 @@ import { Link } from "react-router-dom"
 export default function Services({ checkFood }) {
     return (
         <header className="services-header">
-            <Link to="/main"><i className="fa-solid fa-circle-arrow-left"></i></Link>
+            <Link to="/"><img src='../images/uradi-logo2.png' alt='hotel-logo' /></Link>
 
             <input type='checkbox' id="btn"/>
             <label htmlFor="btn" id="btn1"><i className="fa-solid fa-bars"></i></label>

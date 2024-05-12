@@ -12,8 +12,8 @@ function Account() {
   const { setLoginState } = useContext(AuthContext);
 
   useEffect(() => {
-    // axios.get('http://localhost:3001/account', {
-    axios.get('https://uradi-encore-server.onrender.com/account', {
+    axios.get('http://localhost:3001/account', {
+    // axios.get('https://uradi-encore-server.onrender.com/account', {
         headers: {
             accessToken: localStorage.getItem("accessToken")
         }
@@ -21,7 +21,7 @@ function Account() {
     .then((response) => {
       if(response.data.error || response.error) {
         setLoginState("Please log in");
-        history('/main');
+        history('/');
       } else {
         setUserData(response.data.user[0]);
         setBookings(response.data.userData); 
