@@ -12,8 +12,8 @@ function Account() {
   const { setLoginState } = useContext(AuthContext);
 
   useEffect(() => {
-    // axios.get('http://localhost:3001/account', {
-    axios.get('https://uradi-encore-server.onrender.com/account', {
+    axios.get('http://localhost:3001/account', {
+    // axios.get('https://uradi-encore-server.onrender.com/account', {
         headers: {
             accessToken: localStorage.getItem("accessToken")
         }
@@ -48,26 +48,38 @@ function Account() {
       </div>
             <h3>Active Bookings</h3>
             <div className="account-body-active">
-                
                 {
-                    bookings.map((booking) => {
-                        return (
-                            <div className="account" key={booking.book_id}>
-                                <p>{booking.book_type}</p>
-                                <p>{booking.book_days > 1 ? booking.book_days + ' days' : booking.book_days + ' day'}</p>
-                                <p>From {booking.book_from }</p>
-                                <p>To {booking.book_to}</p>
-                                <p>{booking.book_people > 1 ? booking.book_people + ' people' : booking.book_people + ' person'}</p>
-                                <p>{(Date.now() - new Date(booking.book_from).getTime()) / (1000 * 60 * 60 *24) < 0 ?
-                                    `STATUS: Check In on ${booking.book_from}` :
-                                     ((Date.now() - new Date(booking.book_to).getTime()) / (1000 * 60 * 60 * 24) > 0) ?
-                                    `STATUS: Expired` :
-                                    `STATUS: CheckedIn`
-                                }</p>
-                            </div>
-                        )
-                    })
+                  bookings.length === 0 ?
+                  <>
+                    <p>You have no active bookings</p>
+                    <div>
+                    <a className='designated-button' href='/main/rooms'>Book Now</a>
+                    </div>
+                  </> :
+                  <>
+                    {
+                        bookings.map((booking) => {
+                            return (
+                                <div className="account" key={booking.book_id}>
+                                    <h3>Room {booking.room_no}</h3>
+                                    <p>{booking.book_type}</p>
+                                    <p>{booking.book_days > 1 ? booking.book_days + ' days' : booking.book_days + ' day'}</p>
+                                    <p>From {booking.book_from }</p>
+                                    <p>To {booking.book_to}</p>
+                                    <p>{booking.book_people > 1 ? booking.book_people + ' people' : booking.book_people + ' person'}</p>
+                                    <p>{(Date.now() - new Date(booking.book_from).getTime()) / (1000 * 60 * 60 *24) < 0 ?
+                                        `STATUS: Check In on ${booking.book_from}` :
+                                        ((Date.now() - new Date(booking.book_to).getTime()) / (1000 * 60 * 60 * 24) > 0) ?
+                                        `STATUS: Expired` :
+                                        `STATUS: CheckedIn`
+                                    }</p>
+                                </div>
+                            )
+                        })
+                    }
+                  </>
                 }
+
             </div>
     </div>
   )

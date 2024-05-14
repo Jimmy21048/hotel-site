@@ -344,7 +344,7 @@
     font-size:30px;
   }
   .services-header a img {
-    height:8vh;
+    height:7vh;
   }
   /* Services header */
 
@@ -693,125 +693,159 @@
     cursor:pointer;
   }
   /* room details */
-    /* foods */
-    .foods {
-      height:max-content;
-      padding-bottom:5vh;
-      width:100vw;
-      position:relative;
-      background-color: var(--bgc6);
-    }
-    .categories-bgc-img {
-      height:50vh;
-      width:100%;
-      object-fit: cover;
-    }
-    #hot-beverages, #main-course, #dessert, #sandwich, #salad {
-      height:max-content;
-      padding-top:10vh;
-      margin-bottom:5vh;
-    }
-    #hot-beverages h3, #main-course h3, #dessert h3, #sandwich h3, #salad h3 {
-      text-align: center;
-      height:5vh;
-    }
-    /* food items */
-    .food-items {
-      height:max-content;
-      display:grid;
-      grid-template-columns: repeat(auto-fit, 300px);
-      justify-content: space-between;
-      padding:20px;
-      gap:50px;
-    }
-    .food {
-      width:300px;
-      height:150px;
-      box-shadow: 1px 1px 1px 1px black;
-      border-radius: 10px;
-      display:flex;
-    }
-    .food-info {
-      width:45%;
-      height:inherit;
-      display:flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-    }
-    .food-info p {
-      text-align:center;
-    }
-    .food img {
-      width:55%;
-      height:inherit;
-      object-fit: cover;
-      border-top-right-radius: 10px;
-      border-bottom-right-radius: 10px;
-    }
-    .food-clicked {
-      position: fixed;
-      left: 0;
-      right: 0;
-      top:20vh;
-      width:650px;
-      height:400px;
-      margin:0 auto;
-      border-radius: 20px;
-      z-index: 999;
-      background-color: var(--bgc5);
-      color:black;
-      padding:16px;
-      display:flex;
-      flex-direction: column;
-      justify-content: space-between;
-    }
-    .food-clicked-header {
-      height:80px;
-      display:flex;
-      justify-content: space-between;
-    }
-    .food-clicked-header button {
-      height:40px;
-      width:40px;
-      border-radius: 50%;
-      border:1px solid rgb(194, 189, 189);
-      cursor:pointer;
-    }
-    .food-clicked-header button:hover {
-      background-color: black;
-      color:white;
-    }
-    .food-clicked-body {
-      height:150px;
-    }
-    .food-clicked-body img {
-      height:inherit;
-      width:45%;
-    }
-    .food-clicked-footer {
-      height:80px;
-      display:flex;
-      justify-content: space-between;
-      align-items:end;
-    }
-    .food-clicked-footer button {
-      height:5vh;
-      width:100px;
-      border-radius: 10px;
-      border:none;
-      background-color: var(--bgc3);
-      cursor:pointer;
-    }
-    .courtesy {
-      height:50px;
-      text-align: center;
-      font-size:1.1rem;
-      font-weight:700;
-    }
-    /*  */
-    
-    /* foods */
+/* foods */
+.foods {
+  height:max-content;
+  padding-bottom:5vh;
+  width:100vw;
+  position:relative;
+  background-color: var(--bgc6);
+}
+.categories-bgc-img {
+  height:50vh;
+  width:100%;
+  object-fit: cover;
+}
+#hot-beverages, #main-course, #dessert, #sandwich, #salad {
+  height:max-content;
+  padding-top:10vh;
+  margin-bottom:5vh;
+}
+#hot-beverages h3, #main-course h3, #dessert h3, #sandwich h3, #salad h3 {
+  text-align: center;
+  height:5vh;
+}
+/* food items */
+.food-items {
+  height:max-content;
+  display:grid;
+  grid-template-columns: repeat(auto-fit, 300px);
+  justify-content: space-between;
+  padding:20px;
+  gap:50px;
+}
+.food {
+  width:300px;
+  height:150px;
+  box-shadow: 1px 1px 1px 1px black;
+  border-radius: 10px;
+  display:flex;
+  cursor: pointer;
+}
+.food-info {
+  width:45%;
+  height:inherit;
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.food-info p {
+  text-align:center;
+}
+.food img {
+  width:55%;
+  height:inherit;
+  object-fit: cover;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+.food-clicked {
+  position: fixed;
+  left: 0;
+  right: 0;
+  top:20vh;
+  width:650px;
+  height:400px;
+  margin:0 auto;
+  border-radius: 20px;
+  z-index: 999;
+  background-color: var(--bgc5);
+  color:black;
+  padding:16px;
+  display:flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.food-clicked-header {
+  height:80px;
+  display:flex;
+  justify-content: space-between;
+}
+.food-clicked-header button {
+  height:40px;
+  width:40px;
+  border-radius: 50%;
+  border:1px solid rgb(194, 189, 189);
+  cursor:pointer;
+}
+.food-clicked-header button:hover {
+  background-color: black;
+  color:white;
+}
+.food-clicked-body {
+  height:150px;
+  width:100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding:0 20px;
+}
+.food-clicked-body img {
+  height:inherit;
+  object-fit: cover;
+  max-width: 50%;
+}
+.food-clicked-body p {
+  font-weight: 700;
+  font-style: italic;
+}
+.food-clicked-footer {
+  height:80px;
+  display:flex;
+  justify-content: space-between;
+  align-items:end;
+}
+.food-clicked-footer .fa-star {
+  font-size:25px;
+}
+.designated-button {
+  height:5vh;
+  width:max-content;
+  border-radius: 10px;
+  border:none;
+  background-color: var(--bgc3);
+  cursor:pointer;
+  text-decoration: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color:black;
+  font-size:1.1rem;
+  padding:3px;
+}
+.courtesy {
+  height:30px;
+  display:flex;
+  align-items: center;
+  justify-content: center;
+  font-size:1.1rem;
+  font-weight:700;
+}
+.food-clicked-body select {
+  width:100px;
+  height:5vh;
+  border-radius: 10px;
+  padding:5px;
+  background-color: var(--bgc3);
+  border:none;
+}
+.food-clicked-body select:focus {
+  outline:none;
+}
+/*  */
+
+/* foods */
      /* activities */
       .games {
     height:max-content;
@@ -1010,7 +1044,8 @@
 }
 .account {
   border:1px solid var(--bgc5);
-  border-radius:5px;
+  background-color: var(--bgc3);
+  border-radius:10px;
   width:450px;
   max-width:95%;
   padding:10px;
@@ -1020,9 +1055,12 @@
   font-weight:600;
 }
 .account p {
-  background-color: var(--bgc5);
+  /* background-color: var(--bgc5); */
   padding:5px;
   border-radius:5px;
+}
+.account h3 {
+  height:4vh;
 }
 /* account */
 @media screen and (max-width: 1000px) {
@@ -1051,7 +1089,7 @@
     font-size: 2.2rem;
     letter-spacing: 1px;
   }
-  .home-body-left i {
+  .home-body-left .i {
     text-align: center;
     letter-spacing: 1px;
     font-size: 1.2rem;

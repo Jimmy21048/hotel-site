@@ -2,7 +2,6 @@
 import './App.css';
 import {Route, Routes} from "react-router-dom";
 import Home from './Home';
-import Main from './Main';
 import Foods from './Foods';
 import Rooms from './Rooms';
 import Games from './Games';
@@ -23,8 +22,8 @@ function App() {
   const username = useRef({fname: '', lname: ''});
 
   useEffect(() => {
-    // axios.get("http://localhost:3001/login/auth", {
-    axios.get("https://uradi-encore-server.onrender.com/auth", {
+    axios.get("http://localhost:3001/login/auth", {
+    // axios.get("https://uradi-encore-server.onrender.com/auth", {
       headers : {
         accessToken: localStorage.getItem("accessToken")
       }

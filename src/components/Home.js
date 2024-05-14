@@ -30,7 +30,7 @@ export default function Home() {
         <div className="home">
             <div className='home-page'>
                 <header className='home-page-header'>
-                    <a className='hotel-logo' href='/home'>
+                    <a className='hotel-logo' href='/'>
                         <img src='../images/uradi-logo.png' alt='hotel-logo' />
                     </a>
 

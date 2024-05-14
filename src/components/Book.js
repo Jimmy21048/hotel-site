@@ -37,8 +37,8 @@ export default function Book() {
 
     useEffect(() => {
 
-        // axios.get("http://localhost:3001/details/room", {
-        axios.get("https://uradi-encore-server.onrender.com/details/room", {
+        axios.get("http://localhost:3001/details/room", {
+        // axios.get("https://uradi-encore-server.onrender.com/details/room", {
             headers: {
                 accessToken: localStorage.getItem("accessToken"),
                 roomType: type,
@@ -60,9 +60,11 @@ export default function Book() {
 
     
     const onSubmit = (data) => {
-        if(window.confirm("Confirm booking")) {          
-            // axios.post('http://localhost:3001/account', data, {
-            axios.post('https://uradi-encore-server.onrender.com/account', data, {
+        if(window.confirm("Confirm booking")) {    
+            data.room = available;
+            console.log(data);
+            axios.post('http://localhost:3001/account', data, {
+            // axios.post('https://uradi-encore-server.onrender.com/account', data, {
                 headers: {
                     accessToken: localStorage.getItem("accessToken")
                 }
