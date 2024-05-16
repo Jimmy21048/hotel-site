@@ -267,8 +267,6 @@
   width:50%;
   text-align: center;
   font-size:1.1rem;
-  font-weight:600;
-  letter-spacing: 2px;
 }
 .make-order {
   height:7vh;
@@ -284,7 +282,7 @@
 
 
 /*  */
-/* .main-footer {
+.main-footer {
   height:50vh;
   background-color: var(--bgc2);
   display:flex;
@@ -293,19 +291,22 @@
   width:30vw;
   border:1px solid;
   padding:20px;
-} */
-/* .footer-left-time {
+} 
+.footer-left-time {
   border:1px solid;
   padding:20px;
   border-radius: 20px;
-} */
-/* .footer-left-time p {
+}
+.footer-left-time p {
   color:white;
 }
 .main-footer p {
   font-size:1.1rem;
   font-weight:700;
-} */
+}
+.footer-left-follow {
+  
+}
 
   /* Services header */
   .services-header {

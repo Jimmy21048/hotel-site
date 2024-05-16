@@ -143,7 +143,9 @@ export default function Home() {
                         </div>
                         <p>Follow Us</p>
                         <div className='footer-left-follow'>
-                            
+                            <div></div>
+                            <div></div>
+                            <div></div>
                         </div>
                     </div>
                     <div className='footer-right'>

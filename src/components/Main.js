@@ -13,6 +13,7 @@ export default function Main() {
         }, 4000);
 
         axios.post("http://localhost:3001/account/bookings", {
+        // axios.post("https://uradi-encore-server.onrender.com/account/bookings", {
             headers: {
                 accessToken: localStorage.getItem("accessToken")
             }
