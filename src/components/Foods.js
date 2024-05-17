@@ -43,7 +43,7 @@ export default function Foods() {
 
     useEffect(() => {
         // axios.get("http://localhost:3001/foods", {
-        axios.post('https://uradi-encore-server.onrender.com/foods', {
+        axios.get('https://uradi-encore-server.onrender.com/foods', {
             headers: {
                 accessToken: localStorage.getItem("accessToken")
             }
