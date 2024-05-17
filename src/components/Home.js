@@ -41,7 +41,7 @@ export default function Home() {
                                 <a className='home-page-auth' href='/signup' >signup</a>
                                 <a className='home-page-auth' href='/login' >login</a>
                             </> :
-                            <a className='user-account-initials' href='/account'>{username.current.fname} {username.current.lname}</a>
+                            <a className='user-account-initials' href='/account'>{username.current.fnameI} {username.current.lnameI}</a>
                         }
                     </div>
                 </header>
@@ -143,13 +143,22 @@ export default function Home() {
                         </div>
                         <p>Follow Us</p>
                         <div className='footer-left-follow'>
-                            <div></div>
-                            <div></div>
-                            <div></div>
+                            <div><i class="fa-brands fa-facebook"></i></div>
+                            <div><i class="fa-brands fa-twitter"></i></div>
+                            <div><i class="fa-brands fa-instagram"></i></div>
+                            <div><i class="fa-brands fa-linkedin"></i></div>
                         </div>
+                        <h4 className='footer-left-copyright'>
+                            @2024 copyright
+                        </h4>
+                        <i>Designed by Jimmy Rubia</i>
                     </div>
                     <div className='footer-right'>
-
+                        <div><p>Lorem</p> <p>proident</p> <p>labore</p>   <p>dolore</p></div>
+                        <div>        <p>architecto</p>        <p>voluptatem</p>   <p>veniam</p></div>
+                        <div>   <p>exercitationem </p>     <p>consequuntur </p>    </div>
+                        <div>   <p>incididunt</p>   <p>voluptas </p>  <p>proident</p></div>
+                        <div>          <p>reprehenderit </p>  <p>labore</p>   <p>dolore</p></div>
                     </div>
                 </div>
             </div>

@@ -16,8 +16,8 @@ function Signup() {
   };
 
     const onSubmit = (data) => {
-        // axios.post('http://localhost:3001/signup', data)
-        axios.post('https://uradi-encore-server.onrender.com/signup', data)
+        axios.post('http://localhost:3001/signup', data)
+        // axios.post('https://uradi-encore-server.onrender.com/signup', data)
         .then((response) => {
           if(response.data === "Sign Up successful, Login") {
             history('/login');
