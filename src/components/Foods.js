@@ -41,8 +41,8 @@ export default function Foods() {
     }
 
     useEffect(() => {
-        axios.get("http://localhost:3001/foods", {
-        // axios.post('https://uradi-encore-server.onrender.com/foods', {
+        // axios.get("http://localhost:3001/foods", {
+        axios.post('https://uradi-encore-server.onrender.com/foods', {
             headers: {
                 accessToken: localStorage.getItem("accessToken")
             }
@@ -58,15 +58,14 @@ export default function Foods() {
         data.room = document.getElementById("theRoom").value;
 
             if(window.confirm("Confirm food order to room " + data.room)) {
-                axios.post("http://localhost:3001/foods/order", data, {
-                    // axios.post('https://uradi-encore-server.onrender.com/account', data, {
+                // axios.post("http://localhost:3001/foods/order", data, {
+                    axios.post('https://uradi-encore-server.onrender.com/account', data, {
                     headers: {
                         accessToken: localStorage.getItem("accessToken")
                     }
                 }).then((response) => {
                     console.log(response);
                     setCheckFood(false);
-                    // history('/account');
                 })
             }
     }

@@ -1246,7 +1246,7 @@
   position:fixed;
   bottom:2px;
   padding-left:10px;
-  background-color: rgb(238, 236, 236);
+  /* background-color: rgb(238, 236, 236); */
 }
 .acc-logout p {
   display:flex !important;

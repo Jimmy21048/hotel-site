@@ -17,7 +17,7 @@ export default function Services({ checkFood }) {
             <Link to="/"><img src='../images/uradi-logo2.png' alt='hotel-logo' /></Link>
 
             <input type='checkbox' id="btn"/>
-            <label htmlFor="btn" id="btn1"><i className="fa-solid fa-bars">menu</i></label>
+            <label htmlFor="btn" id="btn1"><i className="fa-solid fa-bars"></i></label>
             <div className="services-tabs">
                 <label htmlFor="btn" id="btn2"><i className="fa-solid fa-xmark"></i></label>
                 <Link to="/main/foods">Menu</Link>

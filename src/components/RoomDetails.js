@@ -1,7 +1,5 @@
 import { useParams } from "react-router-dom"
-// import useFetch from "./useFetch";
 import { rooms } from "./roomsArray";
-// import axios from "axios";
 
 export default function RoomDetails() {
     const { id } = useParams();
