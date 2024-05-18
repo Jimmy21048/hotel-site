@@ -23,7 +23,6 @@ export default function Home() {
           }
         })
         .then((response) => {
-            console.log(response)
           if(response.data.error) {
             setAuthState(false);
           } else {
@@ -82,7 +81,7 @@ export default function Home() {
                             <a className='home-link' href='/main/foods'>Order Food</a>
                         </div>
 
-                        <a href='#main' className='home-link-2'><i class="fa-solid fa-chevron-down"></i></a>
+                        <a href='#main' className='home-link-2'><i className="fa-solid fa-chevron-down"></i></a>
                     </div>
                     
                 </div>
@@ -167,10 +166,10 @@ export default function Home() {
                         </div>
                         <p>Follow Us</p>
                         <div className='footer-left-follow'>
-                            <div><i class="fa-brands fa-facebook"></i></div>
-                            <div><i class="fa-brands fa-twitter"></i></div>
-                            <div><i class="fa-brands fa-instagram"></i></div>
-                            <div><i class="fa-brands fa-linkedin"></i></div>
+                            <div><i className="fa-brands fa-facebook"></i></div>
+                            <div><i className="fa-brands fa-twitter"></i></div>
+                            <div><i className="fa-brands fa-instagram"></i></div>
+                            <div><i className="fa-brands fa-linkedin"></i></div>
                         </div>
                         <h4 className='footer-left-copyright'>
                             @2024 copyright

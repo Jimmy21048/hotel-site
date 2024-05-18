@@ -65,7 +65,6 @@ export default function Foods() {
                         accessToken: localStorage.getItem("accessToken")
                     }
                 }).then((response) => {
-                    console.log(response);
                     setCheckFood(false);
                 })
             }
