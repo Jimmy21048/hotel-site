@@ -50,7 +50,7 @@ export default function Foods() {
         }).then((response) => {
             setBookedRooms(response.data);         
         })
-    }, [])
+    }, [bookedRooms])
     
     function onSubmit() {
         const data = {};
