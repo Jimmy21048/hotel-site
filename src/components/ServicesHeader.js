@@ -1,11 +1,10 @@
 import { Link } from "react-router-dom"
 import { AuthContext } from "../helpers/AuthContext";
-import { useContext, useRef } from "react";
+import { useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from 'axios';
 export default function Services({ checkFood }) {
-    const username = useRef();
-    const {setLoginState, setAuthState, authState} = useContext(AuthContext);
+    const {setLoginState, setAuthState, authState, username} = useContext(AuthContext);
     const history = useNavigate();
 
     // axios.get("http://localhost:3001/login/auth", {

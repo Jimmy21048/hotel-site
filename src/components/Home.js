@@ -6,9 +6,8 @@ import axios from 'axios';
 
 
 export default function Home() {
-    const { authState, loginState, setLoginState, setAuthState } = useContext(AuthContext);
+    const { authState, loginState, setLoginState, setAuthState, username } = useContext(AuthContext);
     const [time, setTime] = useState(new Date());
-    const username = useRef({fname: '', lname: ''});
 
     useEffect(() => {
         setTimeout(() => {
@@ -18,12 +17,13 @@ export default function Home() {
 
     useEffect(() => {
         // axios.get("http://localhost:3001/login/auth", {
-        axios.get("https://uradi-encore-server.onrender.com/auth", {
+        axios.get("https://uradi-encore-server.onrender.com/login/auth", {
           headers : {
             accessToken: localStorage.getItem("accessToken")
           }
         })
         .then((response) => {
+            console.log(response)
           if(response.data.error) {
             setAuthState(false);
           } else {

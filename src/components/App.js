@@ -12,16 +12,17 @@ import Signup from './Signup';
 import Login from './Login';
 import Account from './Account';
 import { AuthContext } from '../helpers/AuthContext';
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 
 
 function App() {
   const [authState, setAuthState] = useState(false);
   const [loginState, setLoginState] = useState('');
+  const username = useRef({fname: '', lname: ''});
 
   return (
     <div className="app">
-      <AuthContext.Provider value={{authState, setAuthState, loginState, setLoginState}}>
+      <AuthContext.Provider value={{authState, setAuthState, loginState, setLoginState, username}}>
       <Routes>
         <Route path='/' element= {<Home />} />
         <Route path='/signup' element = {<Signup />} />
