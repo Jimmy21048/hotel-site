@@ -60,7 +60,7 @@ export default function Foods() {
 
             if(window.confirm("Confirm food order to room " + data.room)) {
                 // axios.post("http://localhost:3001/foods/order", data, {
-                    axios.post('https://uradi-encore-server.onrender.com/account', data, {
+                    axios.post('https://uradi-encore-server.onrender.com/foods/order', data, {
                     headers: {
                         accessToken: localStorage.getItem("accessToken")
                     }
