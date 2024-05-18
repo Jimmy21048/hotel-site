@@ -12,39 +12,16 @@ import Signup from './Signup';
 import Login from './Login';
 import Account from './Account';
 import { AuthContext } from '../helpers/AuthContext';
-import { useEffect, useRef, useState } from 'react';
-import axios from 'axios';
+import { useState } from 'react';
 
 
 function App() {
   const [authState, setAuthState] = useState(false);
   const [loginState, setLoginState] = useState('');
-  const username = useRef({fname: '', lname: ''});
 
-  useEffect(() => {
-    // axios.get("http://localhost:3001/login/auth", {
-    axios.get("https://uradi-encore-server.onrender.com/auth", {
-      headers : {
-        accessToken: localStorage.getItem("accessToken")
-      }
-    })
-    .then((response) => {
-      if(response.data.error) {
-        setAuthState(false);
-      } else {
-        setAuthState(true);
-        username.current = ({
-          fname: response.data.fname,
-          lname: response.data.lname,
-          fnameI: response.data.fnameI,
-          lnameI: response.data.lnameI
-        })
-      }
-    })
-  }, [authState])
   return (
     <div className="app">
-      <AuthContext.Provider value={{authState, setAuthState, loginState, setLoginState, username}}>
+      <AuthContext.Provider value={{authState, setAuthState, loginState, setLoginState}}>
       <Routes>
         <Route path='/' element= {<Home />} />
         <Route path='/signup' element = {<Signup />} />

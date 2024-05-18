@@ -1091,6 +1091,9 @@
 .account h3 {
   height:4vh;
 }
+.account-body .logout-btn {
+  display:initial !important;
+}
 /* account */
 @media screen and (max-width: 1000px) {
   /* home page */
@@ -1258,6 +1261,9 @@
 }
 .logout-btn {
   width:200px;
+}
+.logout-btn {
+  display:initial !important;
 }
 /* Services header */
 

@@ -1,18 +1,42 @@
 
-import { useState, useEffect, useContext } from 'react';
+import { useState, useEffect, useContext, useRef } from 'react';
 import './App.css';
 import { AuthContext } from "../helpers/AuthContext"
+import axios from 'axios';
 
 
 export default function Home() {
-    const { authState, loginState, setLoginState, username } = useContext(AuthContext);
+    const { authState, loginState, setLoginState, setAuthState } = useContext(AuthContext);
     const [time, setTime] = useState(new Date());
+    const username = useRef({fname: '', lname: ''});
 
     useEffect(() => {
         setTimeout(() => {
             setLoginState("");
         }, 4000);
     }, [])
+
+    useEffect(() => {
+        // axios.get("http://localhost:3001/login/auth", {
+        axios.get("https://uradi-encore-server.onrender.com/auth", {
+          headers : {
+            accessToken: localStorage.getItem("accessToken")
+          }
+        })
+        .then((response) => {
+          if(response.data.error) {
+            setAuthState(false);
+          } else {
+            setAuthState(true);
+            username.current = ({
+              fname: response.data.fname,
+              lname: response.data.lname,
+              fnameI: response.data.fnameI,
+              lnameI: response.data.lnameI
+            })
+          }
+        })
+      }, [])
 
     //changing the time
     useEffect(() => {

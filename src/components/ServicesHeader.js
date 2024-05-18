@@ -1,10 +1,33 @@
 import { Link } from "react-router-dom"
 import { AuthContext } from "../helpers/AuthContext";
-import { useContext } from "react";
+import { useContext, useRef } from "react";
 import { useNavigate } from "react-router-dom";
+import axios from 'axios';
 export default function Services({ checkFood }) {
-    const {setLoginState, setAuthState, authState, username} = useContext(AuthContext);
+    const username = useRef();
+    const {setLoginState, setAuthState, authState} = useContext(AuthContext);
     const history = useNavigate();
+
+    // axios.get("http://localhost:3001/login/auth", {
+        axios.get("https://uradi-encore-server.onrender.com/auth", {
+          headers : {
+            accessToken: localStorage.getItem("accessToken")
+          }
+        })
+        .then((response) => {
+          if(response.data.error) {
+            setAuthState(false);
+          } else {
+            setAuthState(true);
+            username.current = ({
+              fname: response.data.fname,
+              lname: response.data.lname,
+              fnameI: response.data.fnameI,
+              lnameI: response.data.lnameI
+            })
+          }
+        })
+
     function logout() {
         localStorage.removeItem("accessToken")
         setAuthState(false);
@@ -12,6 +35,8 @@ export default function Services({ checkFood }) {
         history('/');
 
     }
+
+
     return (
         <header className="services-header">
             <Link to="/"><img src='../images/uradi-logo2.png' alt='hotel-logo' /></Link>
@@ -31,7 +56,7 @@ export default function Services({ checkFood }) {
                         : 
                         <>
                         <p style={{display: "none"}}>{username.current.fname} {username.current.lname}</p>
-                        <button className="logout-btn" onClick={logout}>Log out</button>
+                        <button className="logout-btn" onClick={logout} style={{display: "none"}} >Log out</button>
                         </>
                     }
                 </div>
