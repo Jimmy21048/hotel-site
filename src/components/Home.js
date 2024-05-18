@@ -24,6 +24,7 @@ export default function Home() {
           }
         })
         .then((response) => {
+            console.log(response);
           if(response.data.error) {
             setAuthState(false);
           } else {
