@@ -3,8 +3,9 @@ import { AuthContext } from "../helpers/AuthContext";
 import { useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from 'axios';
+import Logout from "./Logout";
 export default function Services({ checkFood }) {
-    const {setLoginState, setAuthState, authState, username} = useContext(AuthContext);
+    const { setAuthState, authState, username} = useContext(AuthContext);
     const history = useNavigate();
 
     // axios.get("http://localhost:3001/login/auth", {
@@ -27,27 +28,19 @@ export default function Services({ checkFood }) {
           }
         })
 
-    function logout() {
-        localStorage.removeItem("accessToken")
-        setAuthState(false);
-        setLoginState("Logout Succesful");
-        history('/');
-
-    }
-
+        const selectTask = (id, link) => {
+          id.style.color = "green";
+          history(link);
+        }
 
     return (
         <header className="services-header">
             <Link to="/"><img src='../images/uradi-logo2.png' alt='hotel-logo' /></Link>
-
-            <input type='checkbox' id="btn"/>
-            <label htmlFor="btn" id="btn1"><i className="fa-solid fa-bars"></i></label>
             <div className="services-tabs">
-                <label htmlFor="btn" id="btn2"><i className="fa-solid fa-xmark"></i></label>
-                <Link to="/main/foods">Menu</Link>
-                <Link to="/main/rooms">Rooms</Link>
-                <Link to="/main/games">Activities</Link>
-                <Link to="/about">About</Link>
+                <button className="button active" id="btn1" onClick={(e) => selectTask(e.target, "/main/foods")}><i class="fa-solid fa-mug-hot"></i>Menu</button>
+                <button className="button" id="btn2" onClick={(e) => selectTask(e.target, "/main/rooms")}><i class="fa-solid fa-bed"></i>Rooms</button>
+                <button className="button" id="btn3" onClick={(e) => selectTask(e.target, "/main/games")}><i class="fa-solid fa-puzzle-piece"></i>Activities</button>
+                <button className="button" id="btn4" onClick={(e) => selectTask(e.target, "/about")}><i class="fa-solid fa-circle-info"></i>About</button>
                 <div className="acc-logout"  >
                     {
                         !authState ? 
@@ -55,7 +48,7 @@ export default function Services({ checkFood }) {
                         : 
                         <>
                         <p style={{display: "none"}}>{username.current.fname} {username.current.lname}</p>
-                        <button className="logout-btn" onClick={logout} style={{display: "none"}} >Log out</button>
+                        <Logout />
                         </>
                     }
                 </div>
