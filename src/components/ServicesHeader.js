@@ -8,8 +8,8 @@ export default function Services({ checkFood }) {
     const { setAuthState, authState, username} = useContext(AuthContext);
     const history = useNavigate();
 
-    axios.get("http://localhost:3001/login/auth", {
-        // axios.get("https://uradi-encore-server.onrender.com/login/auth", {
+    // axios.get("http://localhost:3001/login/auth", {
+        axios.get("https://uradi-encore-server.onrender.com/login/auth", {
           headers : {
             accessToken: localStorage.getItem("accessToken")
           }
@@ -28,10 +28,6 @@ export default function Services({ checkFood }) {
           }
         })
 
-        // const selectTask = (id, link) => {
-        //   id.style.color = "green";
-        //   history(link);
-        // }
 
     return (
         <header className="services-header">
