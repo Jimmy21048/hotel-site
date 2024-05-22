@@ -8,8 +8,8 @@ export default function Services({ checkFood }) {
     const { setAuthState, authState, username} = useContext(AuthContext);
     const history = useNavigate();
 
-    // axios.get("http://localhost:3001/login/auth", {
-        axios.get("https://uradi-encore-server.onrender.com/login/auth", {
+    axios.get("http://localhost:3001/login/auth", {
+        // axios.get("https://uradi-encore-server.onrender.com/login/auth", {
           headers : {
             accessToken: localStorage.getItem("accessToken")
           }
@@ -28,20 +28,20 @@ export default function Services({ checkFood }) {
           }
         })
 
-        const selectTask = (id, link) => {
-          id.style.color = "green";
-          history(link);
-        }
+        // const selectTask = (id, link) => {
+        //   id.style.color = "green";
+        //   history(link);
+        // }
 
     return (
         <header className="services-header">
             <Link to="/"><img src='../images/uradi-logo2.png' alt='hotel-logo' /></Link>
             <div className="services-tabs">
-                <button className="button active" id="btn1" onClick={(e) => selectTask(e.target, "/main/foods")}><i class="fa-solid fa-mug-hot"></i>Menu</button>
-                <button className="button" id="btn2" onClick={(e) => selectTask(e.target, "/main/rooms")}><i class="fa-solid fa-bed"></i>Rooms</button>
-                <button className="button" id="btn3" onClick={(e) => selectTask(e.target, "/main/games")}><i class="fa-solid fa-puzzle-piece"></i>Activities</button>
-                <button className="button" id="btn4" onClick={(e) => selectTask(e.target, "/about")}><i class="fa-solid fa-circle-info"></i>About</button>
-                <div className="acc-logout"  >
+                <Link className="button"  to="/main/foods" ><i class="fa-solid fa-mug-hot"></i>Menu</Link>
+                <Link className="button"  to="/main/rooms" ><i class="fa-solid fa-bed"></i>Rooms</Link>
+                <Link className="button"  to="/main/games" ><i class="fa-solid fa-puzzle-piece"></i>Activities</Link>
+                <Link className="button"  href="/about" ><i class="fa-solid fa-circle-info"></i>About</Link>
+                <div className="acc-logout" >
                     {
                         !authState ? 
                         <p style={{display: "none"}}>Not logged in</p>
