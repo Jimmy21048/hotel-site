@@ -48,7 +48,9 @@ export default function Foods() {
                 accessToken: localStorage.getItem("accessToken")
             }
         }).then((response) => {
-            setBookedRooms(response.data);         
+            console.log(bookedRooms);
+            setBookedRooms(response.data); 
+            
         })
     }, [bookedRooms])
     
