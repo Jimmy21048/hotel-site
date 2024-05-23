@@ -370,7 +370,10 @@ a:focus, a:active {
     border:none;
     cursor:pointer;
   }
-  .services-header .button:hover {
+  .services-header a:hover {
+    background-color: var(--bgc5);
+  }
+  .services-tabs a:active {
     background-color: var(--bgc5);
   }
   .services-header button .fa-solid {
@@ -1100,6 +1103,7 @@ a:focus, a:active {
   flex-direction: column;
   justify-content: space-between;
   padding-top:10px;
+  background-color: #F5F5F5;
 }
 .account2 .fa-bed {
   display:none;
@@ -1121,7 +1125,7 @@ a:focus, a:active {
 }
 .account .fa-bed {
   color: #fff;
-  padding: 10px;
+  padding: 8px;
   border-radius:50%;
 }
 .account button {
@@ -1153,9 +1157,14 @@ a:focus, a:active {
   align-items: center;
 }
 .user-account-icons {
-  border:1px solid;
   width:300px;
   max-width:35vw;
+  display:flex;
+  align-items:center;
+  justify-content: right;
+}
+.user-account-icons a .fa-regular {
+  font-size:22px;
 }
 .user-spendings {
   border:1px solid var(--bgc11);
@@ -1194,10 +1203,11 @@ a:focus, a:active {
   justify-content: space-around;
   height:inherit;
   width:20%;
-  font-size:0.95rem;
+  font-size:0.9rem;
 }
 .hotel-services a .fa-solid {
   color: #fff;
+  font-size: 18px;
   padding: 10px;
   border-radius:50%;
 }
@@ -1210,7 +1220,45 @@ a:focus, a:active {
   max-height: 45vh;
   padding-left:10px;
 }
-.account-bookings p:first-of-type {
+.account-bookings p:first-of-type, .account-statements-header p {
+  font-size: 0.9rem;
+  font-weight:600;
+  color:var(--bgc11);
+}
+
+.account-statements {
+  margin-top:16px;
+  padding-left:10px;
+  overflow:hidden;
+  width:400px;
+  max-width:95vw;
+}
+.account-statements-header {
+  display:flex;
+  justify-content: space-between;
+  padding-right:10px;
+  height:4vh;
+}
+.account-statements-header button {
+  border:none;
+  color: #0ec770;
+  background-color: transparent;
+  font-weight:600;
+  cursor:pointer;
+}
+.account-statements .statement {
+  font-size: 0.9rem;
+  display:flex;
+  justify-content: space-between;
+  padding:0 10px;
+  height:5vh;
+}
+.account-settings {
+  height:45vh;
+  margin-top:4vh;
+  padding-left:10px;
+}
+.account-settings p:first-of-type {
   font-size: 0.9rem;
   font-weight:600;
   color:var(--bgc11);
