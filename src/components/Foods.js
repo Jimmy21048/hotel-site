@@ -10,7 +10,7 @@ export default function Foods() {
     const [checkFood, setCheckFood] = useState(false);
     const [selectedFood, setSelectedFood] = useState();
     const { username } = useContext(AuthContext);
-    const [bookedRooms, setBookedRooms] = useState();
+    const [bookedRooms, setBookedRooms] = useState([]);
     const history = useNavigate();
 
     const bFast =foods.filter((food) => {
