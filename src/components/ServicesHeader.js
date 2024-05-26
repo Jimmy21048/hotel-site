@@ -36,20 +36,20 @@ export default function Services({ checkFood }) {
                 <Link className="button"  to="/main/foods" ><i class="fa-solid fa-mug-hot"></i>Menu</Link>
                 <Link className="button"  to="/main/rooms" ><i class="fa-solid fa-bed"></i>Rooms</Link>
                 <Link className="button"  to="/main/games" ><i class="fa-solid fa-puzzle-piece"></i>Activities</Link>
-                <Link className="button"  href="/about" ><i class="fa-solid fa-circle-info"></i>About</Link>
-                <div className="acc-logout" >
+                <Link className="button"  to="/about" ><i class="fa-solid fa-circle-info"></i>About</Link>
+                {/* <div className="acc-logout" >
                     {
                         !authState ? 
                         <p style={{display: "none"}}>Not logged in</p>
                         : 
                         <>
                         <p style={{display: "none"}}>{username.current.fname} {username.current.lname}</p>
-                        <Logout />
                         </>
                     }
-                </div>
+                </div> */}
                 
             </div>
+            <Link className='user-account-initials' to='/account'>{username.current.fnameI} {username.current.lnameI}</Link>
         </header>
     )
 }

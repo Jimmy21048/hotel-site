@@ -1,4 +1,4 @@
-import { useParams } from "react-router-dom"
+import { useParams, Link } from "react-router-dom"
 import { rooms } from "./roomsArray";
 
 export default function RoomDetails() {
@@ -11,7 +11,7 @@ export default function RoomDetails() {
     return (
         <div className="room-details">
             <header className="room-details-header">
-                <a href="/main/rooms#rooms"><i className="fa-solid fa-circle-arrow-left"></i>See all rooms</a>
+                <Link to="/main/rooms#rooms"><i className="fa-solid fa-circle-arrow-left"></i>See all rooms</Link>
                 <h2><i>Uradi Encore Hotel & Suites</i></h2>
             </header>
             <div className="room-details-body">

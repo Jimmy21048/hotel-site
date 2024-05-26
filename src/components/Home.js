@@ -3,6 +3,7 @@ import { useState, useEffect, useContext, useRef } from 'react';
 import './App.css';
 import { AuthContext } from "../helpers/AuthContext"
 import axios from 'axios';
+import { Link } from 'react-router-dom'
 
 
 export default function Home() {
@@ -53,18 +54,18 @@ export default function Home() {
         <div className="home">
             <div className='home-page'>
                 <header className='home-page-header'>
-                    <a className='hotel-logo' href='/'>
+                    <Link className='hotel-logo' to='/'>
                         <img src='../images/uradi-logo.png' alt='hotel-logo' />
-                    </a>
+                    </Link>
 
                     <div className='home-page-left'>
                         {
                             !authState ? 
                             <>
-                                <a className='home-page-auth' href='/signup' >signup</a>
-                                <a className='home-page-auth' href='/login' >login</a>
+                                <Link className='home-page-auth' to='/signup' >signup</Link>
+                                <Link className='home-page-auth' to='/login' >login</Link>
                             </> :
-                            <a className='user-account-initials' href='/account'>{username.current.fnameI} {username.current.lnameI}</a>
+                            <Link className='user-account-initials' to='/account'>{username.current.fnameI} {username.current.lnameI}</Link>
                         }
                     </div>
                 </header>
@@ -77,8 +78,8 @@ export default function Home() {
                         <i className='i'>Embark on a culinary journey like no other</i>
 
                         <div className='home-links'>
-                            <a className='home-link' href='/main/rooms'>Book a Room</a>
-                            <a className='home-link' href='/main/foods'>Order Food</a>
+                            <Link className='home-link' to='/main/rooms'>Book a Room</Link>
+                            <Link className='home-link' to='/main/foods'>Order Food</Link>
                         </div>
 
                         <a href='#main' className='home-link-2'><i className="fa-solid fa-chevron-down"></i></a>
@@ -102,14 +103,14 @@ export default function Home() {
 
                     <div className='main-services-body'>
                         <div className='services-box'>
-                            <a  href='/main/foods' className='main-services-link'>
+                            <Link  to='/main/foods' className='main-services-link'>
                                 <img loading="lazy" src="https://images.pexels.com/photos/2641886/pexels-photo-2641886.jpeg?auto=compress&cs=tinysrgb&w=600" alt='foods'/>
                                 <div className='services-box-details'>
                                     <h4>Order Food</h4>
                                     <p>Make an order from a variety of foods from different cultures and appetites</p>
                                     <div className='make-order'>Make an Order</div>
                                 </div>
-                            </a>
+                            </Link>
                             <div className='main-services-details'>
                                 "Indulge your taste buds in a culinary journey like no other!<br/>
                                 Our food section tantalizes with a symphony of flavors, where every dish tells a story.<br/>
@@ -121,14 +122,14 @@ export default function Home() {
                         </div>
 
                         <div className='services-box'>
-                            <a href='/main/rooms' className='main-services-link' >
+                            <Link to='/main/rooms' className='main-services-link' >
                                 <img loading="lazy"  src="https://images.pexels.com/photos/3688261/pexels-photo-3688261.jpeg?auto=compress&cs=tinysrgb&w=600" alt='rooms'/>
                                 <div className='services-box-details'>
                                     <h4>Rooms</h4>
                                     <p>Book a room that suites your's, family's or groups's needs</p>
                                     <div className='make-order'>Book a Room</div>
                                 </div>  
-                            </a>
+                            </Link>
                             <div className='main-services-details'>
                                 "Step into your sanctuary of comfort and luxury!<br/>
                                 Our rooms section welcomes you to a world of tranquility and elegance,<br/>
@@ -139,14 +140,14 @@ export default function Home() {
                             </div>
                         </div>
                         <div className='services-box'>
-                            <a href='/main/games'  className='main-services-link' >
+                            <Link to='/main/games'  className='main-services-link' >
                                 <img loading="lazy"  src="https://images.pexels.com/photos/1076081/pexels-photo-1076081.jpeg?auto=compress&cs=tinysrgb&w=600" alt='activities'/>
                                 <div className='services-box-details'>
                                     <h4>Activities</h4>
                                     <p>Engage with other guests in both physical and mental activities the resort offers</p>
                                     <div className='make-order'>Check out Activities</div>
                                 </div>
-                            </a>
+                            </Link>
                             <div className='main-services-details'>
                                 "Embark on unforgettable adventures and create memories to last a lifetime!<br/>
                                 Our activities section invites you to dive into a realm of excitement and exploration.<br/>

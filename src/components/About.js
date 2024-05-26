@@ -1,13 +1,14 @@
 
 import React from 'react'
 import Services from './ServicesHeader';
-
+import Tabs from './Tabs';
 function About() {
   return (
     <div className='about'>
         <Services />
-        <h3>About Us</h3>
-      <p>
+        {/* <h3>About Us</h3> */}
+        <Tabs tabItems = {['about']} />
+      <p id='about'>
         
         Welcome to Uradi Encore Restaurant and Resort, where luxury meets hospitality in the heart of Kisii Town. As a prestigious 5-star hotel, we pride ourselves on offering a myriad of services and amenities to ensure an unforgettable experience for every guest.<br/><br/>
 

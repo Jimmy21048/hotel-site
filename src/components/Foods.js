@@ -30,7 +30,6 @@ export default function Foods() {
     })
 
    function handleFood(food) {
-       console.log(food);
         if(!checkFood) {
             setCheckFood(true);
         

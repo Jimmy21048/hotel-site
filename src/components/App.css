@@ -93,8 +93,8 @@ a:focus, a:active {
 }
 .user-account-initials {
   border:2px solid var(--bgc8);
-  height:55px;
-  width:55px;
+  height:45px;
+  width:45px;
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -302,7 +302,6 @@ a:focus, a:active {
 }
 .footer-left {
   width:30vw;
-  border:1px solid;
   padding:20px;
   display:flex;
   flex-direction:column;
@@ -326,18 +325,15 @@ a:focus, a:active {
   flex-direction:column;
   justify-content: space-around;
   align-items: center;
-  border:1px solid;
 }
 .footer-right div {
   width:80%;
   height:5vh;
   display:flex;
   justify-content: space-between;
-  border:1px solid;
 }
 .footer-right div p {
   width:120px;
-  border:1px solid;
 }
 /* footer */
   /* Services header */
@@ -389,6 +385,10 @@ a:focus, a:active {
     height:5vh;
     border-radius:10px;
     font-weight: 700;
+  }
+  .services-header .user-account-initials {
+    border:2px solid black;
+    color:black;
   }
   /* Services header */
 
@@ -742,7 +742,6 @@ a:focus, a:active {
   height:max-content;
   padding-bottom:5vh;
   width:100vw;
-  /* position:relative; */
   background-color: var(--bgc6);
 }
 .categories-bgc-img {
@@ -932,6 +931,7 @@ a:focus, a:active {
   /* activities */
 /* about */
 .about {
+  background-color: var(--bgc6);
   height:100vh;
   width:100vw;
   display:flex;
@@ -1085,8 +1085,8 @@ a:focus, a:active {
   border-radius:10px;
   justify-content: space-between;
   align-items: center;
-  width:350px;
-  height:7vh;
+  width:300px;
+  height:6vh;
   max-width:95%;
   padding-left:10px;
   display:flex;
@@ -1254,14 +1254,30 @@ a:focus, a:active {
   height:5vh;
 }
 .account-settings {
-  height:45vh;
+  height:30vh;
   margin-top:4vh;
   padding-left:10px;
+  display: flex;
+  flex-direction:column;
+  justify-content: space-around;
 }
 .account-settings p:first-of-type {
   font-size: 0.9rem;
   font-weight:600;
   color:var(--bgc11);
+}
+.account-settings .setting {
+  height:8vh;
+  gap:10px;
+  display:flex;
+  align-items:center;
+  font-size:0.8rem;
+}
+.setting .fa-solid, .setting .fa-regular {
+  font-size:18px;
+  padding:10px;
+  border-radius:50%;
+  color:white;
 }
 /* account */
 @media screen and (max-width: 1000px) {

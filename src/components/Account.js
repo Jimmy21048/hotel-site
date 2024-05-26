@@ -1,6 +1,5 @@
 import React, { useContext, useEffect, useState, useRef } from 'react'
 import axios from 'axios';
-import Services from './ServicesHeader';
 import { useNavigate, Link } from 'react-router-dom';
 import { AuthContext } from '../helpers/AuthContext';
 
@@ -33,6 +32,8 @@ function Account() {
         setBookings(response.data.userData); 
         setConsistentBookings(response.data.userData); 
         setOrders(response.data.orders);
+
+        
         
       }
       
@@ -115,20 +116,15 @@ function Account() {
                                 <div className={ hidden ? "account" : "account2"} key={booking.book_id}>
                                     <i className="fa-solid fa-bed" style={{backgroundColor: "#007FFF"}}></i>
                                     <p>Room {booking.room_no}</p>
-                                    <p>{booking.book_type}</p>
+                                    <p className={ hidden ? 'p-hidden' : '' }>{booking.book_type}</p>
                                     <p className={ hidden ? 'p-hidden' : '' }>{booking.book_days > 1 ? booking.book_days + ' days' : booking.book_days + ' day'}</p>
                                     <p className={ hidden ? 'p-hidden' : '' }>From {booking.book_from }</p>
                                     <p className={ hidden ? 'p-hidden' : '' }>To {booking.book_to}</p>
                                     <p className={ hidden ? 'p-hidden' : '' }>{booking.book_people > 1 ? booking.book_people + ' people' : booking.book_people + ' person'}</p>
-                                    <p>{(Date.now() - new Date(booking.book_from).getTime()) / (1000 * 60 * 60 *24) < 0 ?
-                                        `Check In on ${booking.book_from}` :
-                                        ((Date.now() - new Date(booking.book_to).getTime()) / (1000 * 60 * 60 * 24) > 0) ?
-                                        `Expired` :
-                                        `CheckedIn`
-                                    }</p>
+                                    <p>{booking.book_status === 0 ? `Check In on ${booking.book_from}` : booking.book_status === 2 ? `Expired` : booking.book_status === 1 ? `CheckedIn`: 'Error' }</p>
                                     {
                                       hidden ? 
-                                      <button onClick={() => showHidden(booking.book_id)}>more...</button> :
+                                      <button onClick={() => showHidden(booking.book_id)}>Info...</button> :
                                       <button onClick={() => hide()}>hide</button>
                                     }
                                 </div>
@@ -152,6 +148,12 @@ function Account() {
       </div>
       <div className='account-settings'>
         <p>SETTINGS</p>
+        <Link className='setting'><i style={{backgroundColor: "#007FFF"}} class="fa-regular fa-star"></i> MANAGE FAVOURITES</Link>
+        <Link className='setting'><i style={{backgroundColor: "#007FFF"}} class="fa-solid fa-link"></i>SHARE LINK</Link>
+        <Link className='setting'><i style={{backgroundColor: "#E60026"}} class="fa-solid fa-arrow-right-from-bracket"></i>LOG OUT</Link>
+        
+        
+        
       </div>
 
     </div>
