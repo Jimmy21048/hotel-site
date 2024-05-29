@@ -1,6 +1,6 @@
 import { AuthContext } from "../helpers/AuthContext";
 import { useContext } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 export default function Logout() {
     const { setAuthState, setLoginState } = useContext(AuthContext);
     const history = useNavigate();
@@ -12,12 +12,6 @@ export default function Logout() {
 
     }
     return (
-        <button 
-        className="logout-btn"
-        onClick={logout} 
-        style={{display: "none"}} 
-        >
-            Log out
-        </button>
+        <button className='setting' onClick={logout}><i style={{backgroundColor: "#E60026"}} className="fa-solid fa-arrow-right-from-bracket"></i>LOG OUT</button>
     )
 }

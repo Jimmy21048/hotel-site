@@ -1,12 +1,9 @@
 import { Link } from "react-router-dom"
 import { AuthContext } from "../helpers/AuthContext";
 import { useContext } from "react";
-import { useNavigate } from "react-router-dom";
 import axios from 'axios';
-import Logout from "./Logout";
 export default function Services({ checkFood }) {
-    const { setAuthState, authState, username} = useContext(AuthContext);
-    const history = useNavigate();
+    const { setAuthState, authState,  username} = useContext(AuthContext);
 
     // axios.get("http://localhost:3001/login/auth", {
         axios.get("https://uradi-encore-server.onrender.com/login/auth", {
@@ -37,19 +34,12 @@ export default function Services({ checkFood }) {
                 <Link className="button"  to="/main/rooms" ><i class="fa-solid fa-bed"></i>Rooms</Link>
                 <Link className="button"  to="/main/games" ><i class="fa-solid fa-puzzle-piece"></i>Activities</Link>
                 <Link className="button"  to="/about" ><i class="fa-solid fa-circle-info"></i>About</Link>
-                {/* <div className="acc-logout" >
-                    {
-                        !authState ? 
-                        <p style={{display: "none"}}>Not logged in</p>
-                        : 
-                        <>
-                        <p style={{display: "none"}}>{username.current.fname} {username.current.lname}</p>
-                        </>
-                    }
-                </div> */}
                 
             </div>
-            <Link className='user-account-initials' to='/account'>{username.current.fnameI} {username.current.lnameI}</Link>
+            {
+              authState ? <Link className='user-account-initials' to='/account'>{username.current.fnameI} {username.current.lnameI}</Link>:
+              <Link className="button" to='/login'>login</Link>
+            }
         </header>
     )
 }

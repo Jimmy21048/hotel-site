@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useState, useRef } from 'react'
 import axios from 'axios';
 import { useNavigate, Link } from 'react-router-dom';
 import { AuthContext } from '../helpers/AuthContext';
-
+import Logout from './Logout';
 
 
 function Account() {
@@ -15,6 +15,7 @@ function Account() {
   const time = new Date().getHours();
   const [hidden, setHidden] = useState(true);
   const [showStatements, setShowStatements] = useState(false);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     // axios.get('http://localhost:3001/account', {
@@ -32,11 +33,12 @@ function Account() {
         setBookings(response.data.userData); 
         setConsistentBookings(response.data.userData); 
         setOrders(response.data.orders);
-
-        
-        
+        setLoading(false);
       }
       
+    }).catch((error) => {
+      console.log(error);
+      setLoading(true);
     })
 
 
@@ -64,6 +66,10 @@ function Account() {
     return sum;
   }
   const statementTotal = countOrders();
+
+  if(loading) {
+    return <div className='loading'><p>Loading</p> <i style={{color: "green"}} class="fa-solid fa-spinner fa-spin"></i></div>
+  }
   return (
     <div className='account-body'>
       <div className='account-body-header'>
@@ -150,8 +156,8 @@ function Account() {
         <p>SETTINGS</p>
         <Link className='setting'><i style={{backgroundColor: "#007FFF"}} class="fa-regular fa-star"></i> MANAGE FAVOURITES</Link>
         <Link className='setting'><i style={{backgroundColor: "#007FFF"}} class="fa-solid fa-link"></i>SHARE LINK</Link>
-        <Link className='setting'><i style={{backgroundColor: "#E60026"}} class="fa-solid fa-arrow-right-from-bracket"></i>LOG OUT</Link>
-        
+        <Logout />
+        <Link className='setting'></Link>
         
         
       </div>
