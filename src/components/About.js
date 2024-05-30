@@ -6,7 +6,6 @@ function About() {
   return (
     <div className='about'>
         <Services />
-        {/* <h3>About Us</h3> */}
         <Tabs tabItems = {['about']} />
       <p id='about'>
         

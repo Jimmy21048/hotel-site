@@ -73,8 +73,9 @@ a:focus, a:active {
 .home-page-left {
   display:flex;
   width:max-content;
-  gap:20px;
+  gap:5px;
 }
+
 .home-page-left .home-page-auth {
   text-decoration:none;
   width:80px;
@@ -92,7 +93,7 @@ a:focus, a:active {
   transition:1s;
 }
 .user-account-initials {
-  border:2px solid var(--bgc8);
+  border:1px solid var(--bgc9);
   height:45px;
   width:45px;
   border-radius: 50%;
@@ -101,7 +102,7 @@ a:focus, a:active {
   justify-content: center;
   text-decoration: none;
   color:var(--bgc8);
-  font-size: 1.2rem;
+  font-size: 0.9rem;
   font-weight: 600;
 }
 .user-account-initials:hover {
@@ -387,7 +388,7 @@ a:focus, a:active {
     font-weight: 700;
   }
   .services-header .user-account-initials {
-    border:2px solid black;
+    border:2px solid var(--bgc9);
     color:black;
     font-size: 0.9rem;
   }
@@ -910,7 +911,6 @@ a:focus, a:active {
     width:800px;
     max-width:95vw;
     display:flex;
-    /* padding-bottom:10vh; */
     border-bottom: 1px solid gray;
   }
   .activity:nth-of-type(even) {
@@ -934,13 +934,13 @@ a:focus, a:active {
 /* about */
 .about {
   background-color: var(--bgc6);
-  height:100vh;
+  height:max-content;
   width:100vw;
   display:flex;
   flex-direction: column;
   gap:50px;
   align-items: center;
-  overflow-y: scroll;
+  /* overflow-y: scroll; */
 }
 .about p {
   width:600px;
@@ -950,6 +950,7 @@ a:focus, a:active {
   font-size:1.1rem;
   font-weight:400;
 }
+
 /* about */
 /* booking */
 .bookings {
@@ -1164,6 +1165,7 @@ a:focus, a:active {
   display:flex;
   align-items:center;
   justify-content: right;
+  padding-right:2vw;
 }
 .user-account-icons a .fa-regular {
   font-size:22px;
@@ -1402,14 +1404,13 @@ a:focus, a:active {
   padding:0 5px;
 }
 .services-header .services-tabs {
-  position:absolute;
+  position:fixed;
   background-color: var(--bgc5);
   height:10vh !important;
   left:0px;
   z-index: 100;
   width:100vw;
   max-width:100vw;
-  top:90vh;
   bottom:0 !important;
   background-color: var(--bgc6);
 }
@@ -1697,6 +1698,9 @@ a:focus, a:active {
     flex-direction: column;
     height:max-content;
     gap:20px;
+  }
+  .user-account-icons {
+    padding-right:initial
   }
   /* account */
   /* footer */

@@ -9,6 +9,7 @@ import { Link } from 'react-router-dom'
 export default function Home() {
     const { authState, loginState, setLoginState, setAuthState, username } = useContext(AuthContext);
     const [time, setTime] = useState(new Date());
+    const [loading, setLoading] = useState(true);
 
     useEffect(() => {
         setTimeout(() => {
@@ -26,6 +27,7 @@ export default function Home() {
         .then((response) => {
           if(response.data.error) {
             setAuthState(false);
+            setLoading(false);
           } else {
             setAuthState(true);
             username.current = ({
@@ -34,6 +36,7 @@ export default function Home() {
               fnameI: response.data.fnameI,
               lnameI: response.data.lnameI
             })
+            setLoading(false);
           }
         })
       }, [])
@@ -45,11 +48,11 @@ export default function Home() {
         }, 1000)
         return () => clearInterval(timer);
     },[])
-
-    //changing the slides
-
-
-
+    
+    if(loading) {
+        return <div style={{backgroundColor: "#E3E3E3"}}  className='loading'><p>Loading</p> <i style={{color: "green"}} class="fa-solid fa-spinner fa-spin"></i></div>
+    }
+    //reminder to change loading to a component
     return (
         <div className="home">
             <div className='home-page'>

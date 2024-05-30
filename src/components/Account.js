@@ -68,7 +68,7 @@ function Account() {
   const statementTotal = countOrders();
 
   if(loading) {
-    return <div className='loading'><p>Loading</p> <i style={{color: "green"}} class="fa-solid fa-spinner fa-spin"></i></div>
+    return <div style={{backgroundColor: "#E3E3E3"}}  className='loading'><p>Loading</p> <i style={{color: "green"}} class="fa-solid fa-spinner fa-spin"></i></div>
   }
   return (
     <div className='account-body'>
