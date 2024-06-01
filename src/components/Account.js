@@ -15,6 +15,7 @@ function Account() {
   const time = new Date().getHours();
   const [hidden, setHidden] = useState(true);
   const [showStatements, setShowStatements] = useState(false);
+  const [checkLink, setCheckLink] = useState(false);
 
 
   useEffect(() => {
@@ -68,11 +69,32 @@ function Account() {
   }
   const statementTotal = countOrders();
 
+  function handleInputClicked() {
+    const copyText = document.getElementById("input-clicked");
+
+    navigator.clipboard.writeText(copyText.value);
+    document.querySelector("#link-copied").innerHTML = "Link copied to clipboard"
+  }
+
   if(loading) {
     return <div style={{backgroundColor: "#E3E3E3"}}  className='loading'><p>Loading</p> <i style={{color: "green"}} class="fa-solid fa-spinner fa-spin"></i></div>
   }
   return (
     <div className='account-body'>
+      {
+        checkLink &&
+        <div className='food-clicked'>
+            <button onClick = {() => setCheckLink(false)} >
+            {
+              navigator.onLine ? <i className="fa-solid fa-xmark"></i> :
+              'Close'
+            }
+            </button>
+            <input disabled style={{backgroundColor: "transparent", border: "none"}} type='text' value="https://uradi-encore-hotel.vercel.app" id='input-clicked' />
+            <button onClick={handleInputClicked}>Copy link</button>
+            <p id='link-copied'></p>
+        </div> 
+      }
       <div className='account-body-header'>
         <div className='account-bio'>
           <div className='user-initials'>
@@ -128,7 +150,7 @@ function Account() {
                                     <p className={ hidden ? 'p-hidden' : '' }>From {booking.book_from }</p>
                                     <p className={ hidden ? 'p-hidden' : '' }>To {booking.book_to}</p>
                                     <p className={ hidden ? 'p-hidden' : '' }>{booking.book_people > 1 ? booking.book_people + ' people' : booking.book_people + ' person'}</p>
-                                    <p>{booking.book_status === 0 ? `Check In on ${booking.book_from}` : booking.book_status === 2 ? `Expired` : booking.book_status === 1 ? `CheckedIn`: 'Error' }</p>
+                                    <p style={{fontSize: "0.7rem"}}>{booking.book_status === 0 ? `Check In on ${booking.book_from}` : booking.book_status === 2 ? `Expired` : booking.book_status === 1 ? `CheckedIn`: 'Error' }</p>
                                     {
                                       hidden ? 
                                       <button onClick={() => showHidden(booking.book_id)}>Info...</button> :
@@ -146,6 +168,9 @@ function Account() {
       <div className='account-statements' style={{height: showStatements? "max-content" : "8vh"}}>
         <div className='account-statements-header'><p>STATEMENTS</p> {!showStatements ? <button onClick={() => setShowStatements(true)}>SEE ALL</button>: <button onClick={() => setShowStatements(false)}>HIDE</button>}</div>
         {
+          orders.length === 0 && <p style={{color:"#9e9e9e", fontSize: "0.9rem"}}>No orders made</p>
+        }
+        {
           orders.map((order) => {
             return (
               <div className='statement' key={order.order_id}>{order.room_no}: <p>{order.order_name}</p> <p>{order.order_date}</p> <p style={{color: "#03C03C"}}>+{order.order_price}</p></div>
@@ -155,10 +180,8 @@ function Account() {
       </div>
       <div className='account-settings'>
         <p>SETTINGS</p>
-        <Link className='setting'><i style={{backgroundColor: "#007FFF"}} class="fa-regular fa-star"></i> MANAGE FAVOURITES</Link>
-        <Link className='setting'><i style={{backgroundColor: "#007FFF"}} class="fa-solid fa-link"></i>SHARE LINK</Link>
+        <Link className='setting' onClick={() => setCheckLink(true)}><i style={{backgroundColor: "#007FFF"}} class="fa-solid fa-link"></i>SHARE LINK</Link>
         <Logout />
-        <Link className='setting'></Link>
         
         
       </div>

@@ -5,11 +5,12 @@ export default function Logout() {
     const { setAuthState, setLoginState } = useContext(AuthContext);
     const history = useNavigate();
     function logout() {
-        localStorage.removeItem("accessToken")
-        setAuthState(false);
-        setLoginState("Logout Succesful");
-        history('/');
-
+        if(window.confirm("Confirm Logut")) {
+            localStorage.removeItem("accessToken")
+            setAuthState(false);
+            setLoginState("Logout Succesful");
+            history('/');
+        }
     }
     return (
         <button className='setting' onClick={logout}><i style={{backgroundColor: "#E60026"}} className="fa-solid fa-arrow-right-from-bracket"></i>LOG OUT</button>

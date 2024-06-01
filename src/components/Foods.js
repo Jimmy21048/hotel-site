@@ -65,7 +65,7 @@ export default function Foods() {
                     headers: {
                         accessToken: localStorage.getItem("accessToken")
                     }
-                }).then(() => {
+                }).then((response) => {
                     setCheckFood(false);
                     history('/account');
                 })

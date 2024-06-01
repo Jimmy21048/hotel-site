@@ -210,7 +210,12 @@ a:focus, a:active {
 }
 .main-services {
   height:250vh;
-  background-color: var(--bgc10);
+  /* background-color: var(--bgc10); */
+  background: linear-gradient(
+    var(--bgc10),
+    var(--bgc1),
+    var(--bgc10)
+  );
   display:flex;
   flex-direction:column;
   justify-content: space-around;
@@ -251,6 +256,7 @@ a:focus, a:active {
   );
   border-radius: 20px;
   text-decoration: none;
+  border-bottom:2px solid var(--bgc9);
 }
 .main-services-link:hover {
   background: var(--bgc5);
@@ -332,7 +338,7 @@ a:focus, a:active {
   flex-direction:column;
   gap:20px;
 }
-.footer-right div p {
+.footer-right div a {
   width:120px;
 }
 /* footer */
@@ -1258,13 +1264,13 @@ a:focus, a:active {
   height:5vh;
 }
 .account-settings {
-  height:35vh;
+  height:min-content;
   margin-top:4vh;
   padding-left:10px;
   display: flex;
   flex-direction:column;
   justify-content: space-around;
-  gap:20px;
+  gap:10px;
 }
 .account-settings p:first-of-type {
   font-size: 0.9rem;
@@ -1306,6 +1312,24 @@ a:focus, a:active {
   justify-content: center;
   align-items: center;
   font-size:30px;
+}
+.account-body .food-clicked {
+  justify-content: flex-start;
+  gap: 20px;
+}
+.account-body .food-clicked button {
+  height:5vh;
+  border-radius:10px;
+}
+.account-body .food-clicked input {
+  font-size:1.1rem;
+  color: var(--bgc11);
+}
+.account-body .food-clicked button:nth-of-type(2) {
+  width:100px;
+  background-color: rgb(39, 39, 39);
+  color:white;
+  border:none;
 }
 /* account */
 @media screen and (max-width: 1000px) {
@@ -1396,6 +1420,7 @@ a:focus, a:active {
   width:320px;
   max-width: 90%;
   border-bottom: 2px solid var(--bgc9);
+  height:min-content;
 }
 .main-services-details {
   display:none;
@@ -1718,14 +1743,13 @@ a:focus, a:active {
 } 
 .footer-right {
   width:100vw;
-
+  flex-wrap: wrap;
 }
 .footer-right div {
-  width:80%;
+  width:150px;
   gap:10px;
 }
-.footer-right div p {
-  font-size:0.8rem;
+.footer-right div a {
   font-weight:600;
   text-align:left;
   padding-left:10px;

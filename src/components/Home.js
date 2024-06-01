@@ -26,8 +26,9 @@ export default function Home() {
         })
         .then((response) => {
           if(response.data.error) {
-            setAuthState(false);
             setLoading(false);
+            setAuthState(false);
+            
           } else {
             setAuthState(true);
             username.current = ({
@@ -182,13 +183,11 @@ export default function Home() {
                         <h4 className='footer-left-copyright'>
                             @2024 copyright
                         </h4>
-                        <i>Designed by Jimmy Rubia</i>
+                        <i>Designed & developed by Jimmy Rubia</i>
                     </div>
                     <div className='footer-right'>
-                        <div><p>Signup</p> <p>Login</p> <p>Account</p>   <p>Food</p></div>
-                        <div><p>Rooms</p>    <p>Activities </p>    <p>About</p>   <p>Home</p></div>
-                        <div>   <p>Logout </p>     <p>consequuntur </p> <p>labore</p> <p>dolore</p>  </div>
-                        <div>   <p>incididunt</p>   <p>voluptas </p>  <p>proident</p></div>
+                        <div><Link to="/signup">Signup</Link> <Link to="/login">Login</Link> <Link to="/account">Account</Link>   <Link to="/main/foods">Food</Link></div>
+                        <div><Link to="/main/rooms">Rooms</Link>    <Link to="/main/games">Activities </Link>    <Link to="/about">About</Link>   <Link to="/">Home</Link></div>
                     </div>
                 </div>
             </div>
