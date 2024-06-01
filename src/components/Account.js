@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState, useRef } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import axios from 'axios';
 import { useNavigate, Link } from 'react-router-dom';
 import { AuthContext } from '../helpers/AuthContext';
@@ -11,11 +11,11 @@ function Account() {
   const [userData, setUserData] = useState([]);
   const [orders, setOrders] = useState([]);
   const history = useNavigate();
-  const { setLoginState } = useContext(AuthContext);
+  const { setLoginState, loading, setLoading } = useContext(AuthContext);
   const time = new Date().getHours();
   const [hidden, setHidden] = useState(true);
   const [showStatements, setShowStatements] = useState(false);
-  const [loading, setLoading] = useState(true);
+
 
   useEffect(() => {
     // axios.get('http://localhost:3001/account', {
@@ -28,6 +28,7 @@ function Account() {
       if(response.data.error || response.error) {
         setLoginState("Please log in");
         history('/');
+        setLoading(true);
       } else {
         setUserData(response.data.user[0]);
         setBookings(response.data.userData); 

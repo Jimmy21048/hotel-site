@@ -285,8 +285,8 @@ a:focus, a:active {
 .make-order {
   height:5vh;
   width:max-content;
-  border:2px solid blue;
-  color: blue;
+  border:2px solid rgb(17, 161, 197);
+  color: rgb(17, 199, 206);
   border-radius:10px;
   padding:5px 10px;
   display: flex;
@@ -323,15 +323,14 @@ a:focus, a:active {
 .footer-right {
   width:70vw;
   display: flex;
-  flex-direction:column;
-  justify-content: space-around;
   align-items: center;
 }
 .footer-right div {
   width:80%;
-  height:5vh;
+  height:30vh;
   display:flex;
-  justify-content: space-between;
+  flex-direction:column;
+  gap:20px;
 }
 .footer-right div p {
   width:120px;
@@ -1211,6 +1210,7 @@ a:focus, a:active {
 }
 .hotel-services a .fa-solid {
   color: #fff;
+  background-color: black;
   font-size: 18px;
   padding: 10px;
   border-radius:50%;
@@ -1258,12 +1258,13 @@ a:focus, a:active {
   height:5vh;
 }
 .account-settings {
-  height:30vh;
+  height:35vh;
   margin-top:4vh;
   padding-left:10px;
   display: flex;
   flex-direction:column;
   justify-content: space-around;
+  gap:20px;
 }
 .account-settings p:first-of-type {
   font-size: 0.9rem;
@@ -1392,8 +1393,9 @@ a:focus, a:active {
   flex-direction: row;
 }
 .main-services-link {
-  width:400px;
+  width:320px;
   max-width: 90%;
+  border-bottom: 2px solid var(--bgc9);
 }
 .main-services-details {
   display:none;
@@ -1437,14 +1439,14 @@ a:focus, a:active {
 }
 .services-tabs .button i {
   display: initial;
-  font-size:21px;
+  font-size:18px;
   color:var(--bgc12);
 }
 .services-header div a:hover {
   background-color: var(--bgc4);
 }
 .services-header a .fa-solid {
-  font-size:30px;
+  font-size:22px;
 }
 .acc-logout {
   height:15vh;
@@ -1720,14 +1722,13 @@ a:focus, a:active {
 }
 .footer-right div {
   width:80%;
-  height:5vh;
-  display:flex;
-  justify-content: space-around;
+  gap:10px;
 }
 .footer-right div p {
   font-size:0.8rem;
   font-weight:600;
-  text-align:center;
+  text-align:left;
+  padding-left:10px;
 }
 /* footer */
 }

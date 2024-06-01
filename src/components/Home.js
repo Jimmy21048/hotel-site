@@ -49,9 +49,6 @@ export default function Home() {
         return () => clearInterval(timer);
     },[])
     
-    if(loading) {
-        return <div style={{backgroundColor: "#E3E3E3"}}  className='loading'><p>Loading</p> <i style={{color: "green"}} class="fa-solid fa-spinner fa-spin"></i></div>
-    }
     //reminder to change loading to a component
     return (
         <div className="home">
@@ -63,12 +60,19 @@ export default function Home() {
 
                     <div className='home-page-left'>
                         {
-                            !authState ? 
+                            !loading ? 
                             <>
-                                <Link className='home-page-auth' to='/signup' >signup</Link>
-                                <Link className='home-page-auth' to='/login' >login</Link>
-                            </> :
-                            <Link className='user-account-initials' to='/account'>{username.current.fnameI} {username.current.lnameI}</Link>
+                            {
+                                !authState ? 
+                                <>
+                                    <Link className='home-page-auth' to='/signup' >signup</Link>
+                                    <Link className='home-page-auth' to='/login' >login</Link>
+                                </> :
+                                <Link className='user-account-initials' to='/account'>{username.current.fnameI} {username.current.lnameI}</Link>                                
+                            }
+                            </> : ''
+                        //    <i style={{color: "green"}} class="fa-solid fa-spinner fa-spin"></i>
+
                         }
                     </div>
                 </header>
@@ -181,11 +185,10 @@ export default function Home() {
                         <i>Designed by Jimmy Rubia</i>
                     </div>
                     <div className='footer-right'>
-                        <div><p>Lorem</p> <p>proident</p> <p>labore</p>   <p>dolore</p></div>
-                        <div>        <p>architecto</p>        <p>voluptatem</p>   <p>veniam</p></div>
-                        <div>   <p>exercitationem </p>     <p>consequuntur </p>    </div>
+                        <div><p>Signup</p> <p>Login</p> <p>Account</p>   <p>Food</p></div>
+                        <div><p>Rooms</p>    <p>Activities </p>    <p>About</p>   <p>Home</p></div>
+                        <div>   <p>Logout </p>     <p>consequuntur </p> <p>labore</p> <p>dolore</p>  </div>
                         <div>   <p>incididunt</p>   <p>voluptas </p>  <p>proident</p></div>
-                        <div>          <p>reprehenderit </p>  <p>labore</p>   <p>dolore</p></div>
                     </div>
                 </div>
             </div>
