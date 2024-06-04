@@ -4,6 +4,7 @@ import Services from './ServicesHeader';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import { AuthContext } from '../helpers/AuthContext';
+import Loading from './Loading';
 
 function Login() {
   const [loginMessage, setLoginMessage] = useState("");
@@ -13,16 +14,19 @@ function Login() {
     pwd: ""
   })
   const { setAuthState } = useContext(AuthContext);
+  const [loading, setLoading] = useState(null);
 
   const onSubmit = (data) => {
-    // axios.post('http://localhost:3001/login', data)
-    axios.post('https://uradi-encore-server.onrender.com/login', data)
+    // axios.post('http://localhost:3001/login', data, setLoading(true))
+    axios.post('https://uradi-encore-server.onrender.com/login', data, setLoading(true))
     .then((response) => {
       if(response.data.error) {
+        setLoading(false);
         setLoginMessage(response.data.error);
       } else {
         localStorage.setItem("accessToken", response.data);
         setAuthState(true);
+        setLoading(false);
         history('/account');
       }
       
@@ -34,6 +38,10 @@ function Login() {
       setLoginMessage("");
     }, 6000);
   }, [loginMessage])
+
+  if(loading === true) {
+    return <Loading />
+  }
   return (
     <div className='login'>
       <Services />

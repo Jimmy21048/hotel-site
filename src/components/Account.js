@@ -3,6 +3,7 @@ import axios from 'axios';
 import { useNavigate, Link } from 'react-router-dom';
 import { AuthContext } from '../helpers/AuthContext';
 import Logout from './Logout';
+import Loading from './Loading';
 
 
 function Account() {
@@ -11,11 +12,12 @@ function Account() {
   const [userData, setUserData] = useState([]);
   const [orders, setOrders] = useState([]);
   const history = useNavigate();
-  const { setLoginState, loading, setLoading } = useContext(AuthContext);
+  const { setLoginState } = useContext(AuthContext);
   const time = new Date().getHours();
   const [hidden, setHidden] = useState(true);
   const [showStatements, setShowStatements] = useState(false);
   const [checkLink, setCheckLink] = useState(false);
+  const [loading, setLoading] = useState(true);
 
 
   useEffect(() => {
@@ -29,7 +31,6 @@ function Account() {
       if(response.data.error || response.error) {
         setLoginState("Please log in");
         history('/');
-        setLoading(true);
       } else {
         setUserData(response.data.user[0]);
         setBookings(response.data.userData); 
@@ -40,7 +41,6 @@ function Account() {
       
     }).catch((error) => {
       console.log(error);
-      setLoading(true);
     })
 
 
@@ -77,7 +77,7 @@ function Account() {
   }
 
   if(loading) {
-    return <div style={{backgroundColor: "#E3E3E3"}}  className='loading'><p>Loading</p> <i style={{color: "green"}} class="fa-solid fa-spinner fa-spin"></i></div>
+    return <Loading />
   }
   return (
     <div className='account-body'>

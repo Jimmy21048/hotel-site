@@ -18,12 +18,11 @@ import { useState, useRef } from 'react';
 function App() {
   const [authState, setAuthState] = useState(false);
   const [loginState, setLoginState] = useState('');
-  const [loading, setLoading] = useState(true);
   const username = useRef({fname: '', lname: ''});
 
   return (
     <div className="app">
-      <AuthContext.Provider value={{authState, loading, setLoading, setAuthState, loginState, setLoginState, username}}>
+      <AuthContext.Provider value={{authState, setAuthState, loginState, setLoginState, username}}>
       <Routes>
         <Route path='/' element= {<Home />} />
         <Route path='/signup' element = {<Signup />} />

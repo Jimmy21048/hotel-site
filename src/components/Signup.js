@@ -4,6 +4,7 @@ import { Formik, Form, Field, ErrorMessage } from 'formik';
 import { useNavigate } from 'react-router-dom';
 import Services from './ServicesHeader';
 import './App.css';
+import Loading from './Loading';
 
 function Signup() {
   const [signupMessage, setSignupMessage] = useState("");
@@ -14,11 +15,13 @@ function Signup() {
     email: "",
     pwd: ""
   };
+  const [loading, setLoading] = useState(null);
 
     const onSubmit = (data) => {
-        // axios.post('http://localhost:3001/signup', data)
-        axios.post('https://uradi-encore-server.onrender.com/signup', data)
+        // axios.post('http://localhost:3001/signup', data, setLoading(true))
+        axios.post('https://uradi-encore-server.onrender.com/signup', data, setLoading(true))
         .then((response) => {
+          setLoading(false);
           if(response.data === "Sign Up successful, Login") {
             history('/login');
           }
@@ -32,6 +35,9 @@ function Signup() {
       }, 5000);
     },[signupMessage]);
     
+    if(loading === true) {
+      return <Loading />
+    }
   return (
     <div className='signup'>
       <Services />

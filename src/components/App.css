@@ -1083,8 +1083,9 @@ a:focus, a:active {
   font-weight: 600;
 }
 .account-body-active {
-  width:100vw;
+  max-width: 95vw;
   display:flex;
+  flex-wrap: wrap;
   justify-content:space-around;
 }
 .account {
@@ -1100,6 +1101,7 @@ a:focus, a:active {
   display:flex;
   gap:5px;
   font-weight:600;
+  margin-bottom:10px;
 }
 .account2 {
   border:1px solid var(--bgc5);
@@ -1334,6 +1336,9 @@ a:focus, a:active {
 /* account */
 @media screen and (max-width: 1000px) {
   /* home page */
+  .app {
+    padding-bottom: 5vh;
+  }
   .home-page {
     padding:0 5px;
   }
@@ -1723,6 +1728,7 @@ a:focus, a:active {
   }
   .account-body-active {
     flex-direction: column;
+    max-width:100vw;
     height:max-content;
     gap:20px;
   }
