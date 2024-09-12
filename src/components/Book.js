@@ -5,11 +5,13 @@ import { Formik, Form, Field } from 'formik';
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../helpers/AuthContext";
 import { useContext, useEffect, useState } from "react";
+import Loading from './Loading';
 
 export default function Book() {
     const history = useNavigate();
     const { loginState, setLoginState } = useContext(AuthContext);
     const [available, setAvailable] = useState();
+    const [loading, setLoading] = useState(true);
 
     const params = new URLSearchParams(window.location.search);
     const arrive =  params.get("arrive");
@@ -47,6 +49,7 @@ export default function Book() {
             }
         })
         .then((response) => {
+            setLoading(false);
             if(response.data.error) {
                 setLoginState("please log in");
                 history('/');
@@ -87,6 +90,9 @@ export default function Book() {
         }
     }
 
+    if(loading) {
+        return <Loading />
+    }
     return (
         <div className="bookings">
             <Services />
