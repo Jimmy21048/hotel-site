@@ -5,6 +5,7 @@ import { useNavigate } from 'react-router-dom';
 import Services from './ServicesHeader';
 import './App.css';
 import Loading from './Loading';
+import ShowPassword from './showpassword.m';
 
 function Signup() {
   const [signupMessage, setSignupMessage] = useState("");
@@ -16,6 +17,7 @@ function Signup() {
     pwd: ""
   };
   const [loading, setLoading] = useState(null);
+  const [pwdType, setPwdType] = useState('password');
 
     const onSubmit = (data) => {
         // axios.post('http://localhost:3001/signup', data, setLoading(true))
@@ -77,15 +79,19 @@ function Signup() {
                     type="email"
                     id="email" 
                     name="email" 
+                    
                 />
+              
 
-              <label>Password</label>
+              <label>Password
                 <ErrorMessage name='pwd' component="span" />
                 <Field 
-                    type="password"
+                    type={pwdType}
                     id="pwd" 
                     name="pwd" 
                 />
+                <ShowPassword {...{setPwdType}} />
+              </label>
 
               <button type='submit'>SIGN UP</button>
             </Form>

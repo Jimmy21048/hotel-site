@@ -5,6 +5,7 @@ import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import { AuthContext } from '../helpers/AuthContext';
 import Loading from './Loading';
+import ShowPassword from './showpassword.m';
 
 function Login() {
   const [loginMessage, setLoginMessage] = useState("");
@@ -15,6 +16,7 @@ function Login() {
   })
   const { setAuthState } = useContext(AuthContext);
   const [loading, setLoading] = useState(null);
+  const [pwdType, setPwdType] = useState('password');
 
   const onSubmit = (data) => {
     // axios.post('http://localhost:3001/login', data, setLoading(true))
@@ -54,11 +56,13 @@ function Login() {
               id="email"
               name="email" />
 
-              <label>Password</label>
+              <label>Password
               <Field
-              type="password"
+              type={pwdType}
               id="pwd"
               name="pwd" />
+              <ShowPassword {...{setPwdType}} />
+              </label>
 
               <button type='submit'>Login</button>
             </Form>
