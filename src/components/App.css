@@ -1228,8 +1228,8 @@ a:focus, a:active {
   flex-direction: column;
   gap:10px;
   height:max-content;
-  min-height: 15vh;
-  max-height: 45vh;
+  max-height: 40vh;
+  overflow-y: scroll;
   padding-left:10px;
 }
 .account-bookings p:first-of-type, .account-statements-header p {
