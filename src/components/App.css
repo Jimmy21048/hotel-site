@@ -783,6 +783,9 @@ a:focus, a:active {
   display:flex;
   cursor: pointer;
 }
+.food:hover {
+  background-color: var(--bgc9);
+}
 .food-info {
   width:45%;
   height:inherit;
@@ -793,6 +796,7 @@ a:focus, a:active {
 }
 .food-info p {
   text-align:center;
+  font-weight: 600;
 }
 .food img {
   width:55%;
@@ -1045,8 +1049,10 @@ a:focus, a:active {
 /* booking */
  /* account */
  .account-body {
-  height:100vh;
+  height:max-content;
+  padding-bottom: 5vh;
   width:100vw;
+  background-color: #636161da;
 }
 .account-body h3 {
   height:10vh;
@@ -1060,7 +1066,7 @@ a:focus, a:active {
   align-items:center;
   gap:40px;
   padding-left: 20px;
-  background-color: var(--bgc6);
+  /* background-color: var(--bgc6); */
 }
 .user-initials {
   border:1px solid var(--bgc3);
@@ -1113,7 +1119,8 @@ a:focus, a:active {
   flex-direction: column;
   justify-content: space-between;
   padding-top:10px;
-  background-color: #F5F5F5;
+  /* background-color: #F5F5F5; */
+  background-color: #cec9c9c4;
 }
 .account2 .fa-bed {
   display:none;
@@ -1129,12 +1136,13 @@ a:focus, a:active {
   cursor:pointer;
   border-bottom-right-radius: 10px;
   border-bottom-left-radius: 10px;
+  background-color: #cec9c9c4;
 }
 .account p {
   font-size: 0.9rem;
 }
 .account .fa-bed {
-  color: #fff;
+  color: #ffffffdc;
   padding: 8px;
   border-radius:50%;
 }
@@ -1145,6 +1153,7 @@ a:focus, a:active {
   border-bottom-right-radius: 10px;
   border-left:1px solid var(--bgc11);
   cursor:pointer;
+  background-color: #cec9c9c4;
 }
 .p-hidden {
   display:none;
@@ -1157,7 +1166,7 @@ a:focus, a:active {
 }
 .account-body-header {
   height:10vh;
-  background-color: var(--bgc10);
+  /* background-color: var(--bgc10); */
   display:flex;
   justify-content: space-between;
   padding:0 10px;
@@ -1179,6 +1188,7 @@ a:focus, a:active {
 }
 .user-spendings {
   border:1px solid var(--bgc11);
+  background-color: #9e9d9daf;
   box-shadow: 0.5px 0.8px 1px gray;
   width:300px;
   height:15vh;
@@ -1215,13 +1225,15 @@ a:focus, a:active {
   height:inherit;
   width:20%;
   font-size:0.9rem;
+  /* color: #fff; */
 }
 .hotel-services a .fa-solid {
-  color: #fff;
-  background-color: black;
+  color: #ffffffc0;
+  /* background-color: black; */
   font-size: 18px;
   padding: 10px;
   border-radius:50%;
+  background-color: #9e9d9dce;
 }
 .account-bookings {
   display:flex;
@@ -1235,7 +1247,8 @@ a:focus, a:active {
 .account-bookings p:first-of-type, .account-statements-header p {
   font-size: 0.9rem;
   font-weight:600;
-  color:var(--bgc11);
+  /* color:var(--bgc11); */
+  color: #000;
 }
 
 .account-statements {
@@ -1253,7 +1266,8 @@ a:focus, a:active {
 }
 .account-statements-header button {
   border:none;
-  color: #0ec770;
+  /* color: #0ec770; */
+  color: #000;
   background-color: transparent;
   font-weight:600;
   cursor:pointer;
@@ -1277,7 +1291,7 @@ a:focus, a:active {
 .account-settings p:first-of-type {
   font-size: 0.9rem;
   font-weight:600;
-  color:var(--bgc11);
+  /* color:var(--bgc11); */
 }
 .account-settings .setting {
   height:8vh;
@@ -1295,6 +1309,7 @@ a:focus, a:active {
   padding:10px;
   border-radius:50%;
   color:white;
+  background-color: #cfcaca98;
 }
 .loading {
   display:flex;
