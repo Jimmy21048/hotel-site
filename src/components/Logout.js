@@ -13,6 +13,6 @@ export default function Logout() {
         }
     }
     return (
-        <button className='setting' onClick={logout}><i style={{backgroundColor: "#E60026"}} className="fa-solid fa-arrow-right-from-bracket"></i>LOG OUT</button>
+        <button className='setting' onClick={logout}><i style={{backgroundColor: "#cfcaca98"}} className="fa-solid fa-arrow-right-from-bracket"></i>LOG OUT</button>
     )
 }

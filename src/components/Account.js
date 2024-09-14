@@ -121,10 +121,10 @@ function Account() {
         </div>
 
         <div className='hotel-services'>
-          <Link to='/main/foods'><i className="fa-solid fa-mug-hot" style={{backgroundColor: "#03C03C"}} ></i>Menu</Link>
-          <Link to='/main/rooms' ><i className="fa-solid fa-bed" style={{backgroundColor: "#007FFF"}} ></i>Rooms</Link>
-          <Link to='/main/games' ><i className="fa-solid fa-puzzle-piece" style={{backgroundColor: "#E60026"}} ></i>Activities</Link>
-          <Link to='/about' ><i className="fa-solid fa-circle-info" style={{backgroundColor: "#00BFFF"}} ></i>About</Link>
+          <Link to='/main/foods'><i className="fa-solid fa-mug-hot" ></i>Menu</Link>
+          <Link to='/main/rooms' ><i className="fa-solid fa-bed" ></i>Rooms</Link>
+          <Link to='/main/games' ><i className="fa-solid fa-puzzle-piece" ></i>Activities</Link>
+          <Link to='/about' ><i className="fa-solid fa-circle-info" ></i>About</Link>
         </div>
       </div>
       <div className='account-bookings'>
@@ -143,7 +143,7 @@ function Account() {
                         bookings.map((booking) => {
                             return (
                                 <div className={ hidden ? "account" : "account2"} key={booking.book_id}>
-                                    <i className="fa-solid fa-bed" style={{backgroundColor: "#007FFF"}}></i>
+                                    <i className="fa-solid fa-bed"></i>
                                     <p>Room {booking.room_no}</p>
                                     <p className={ hidden ? 'p-hidden' : '' }>{booking.book_type}</p>
                                     <p className={ hidden ? 'p-hidden' : '' }>{booking.book_days > 1 ? booking.book_days + ' days' : booking.book_days + ' day'}</p>
@@ -180,7 +180,7 @@ function Account() {
       </div>
       <div className='account-settings'>
         <p>SETTINGS</p>
-        <Link className='setting' onClick={() => setCheckLink(true)}><i style={{backgroundColor: "#007FFF"}} class="fa-solid fa-link"></i>SHARE LINK</Link>
+        <Link className='setting' onClick={() => setCheckLink(true)}><i  class="fa-solid fa-link"></i>SHARE LINK</Link>
         <Logout />
         
         
