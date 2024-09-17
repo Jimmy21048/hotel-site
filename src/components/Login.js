@@ -26,7 +26,9 @@ function Login() {
   const randomCode = useRef(0);
   const [newPwd, setNewPwd] = useState(false);
   const [pwdMessage, setPwdMessage] = useState('');
-  const [popoverDisplay, setPopoverDisplay] = useState(true)
+  const [pwdNews, setPwdNews] = useState('');
+  const [popoverDisplay, setPopoverDisplay] = useState(false);
+  const [btnLoading, setBtnLoading] = useState(false);
 
   const onSubmit = (data) => {
     // axios.post('http://localhost:3001/login', data, setLoading(true))
@@ -46,31 +48,31 @@ function Login() {
   }
 
   const handleSendEmail = () => {
+    setPwdNews('');
+    setPwdMessage('');
     randomCode.current = (Math.floor(Math.random() * 100000))
-    // axios.post('http://localhost:3001/forgotpassword', {code: randomCode, email: pwdEmail})
-    axios.post('https://uradi-encore-server.onrender.com/forgotpassword', {code: randomCode, email: pwdEmail})
+    // axios.post('http://localhost:3001/forgotpassword', {code: randomCode, email: pwdEmail}, setBtnLoading(true))
+    axios.post('https://uradi-encore-server.onrender.com/forgotpassword', {code: randomCode, email: pwdEmail}, setBtnLoading(true))
     .then(response => {
-      console.log(response);
+      setBtnLoading(false);
       if(response.data.success) {
-        setPwdMessage("Code sent");
+        setPwdNews("code sent");
       } else {
-        setPwdMessage("Could not send code");
+        setPwdNews("code not sent, try again later");
       }
-    })
 
-    setTimeout(() => {
-      console.log(randomCode.current, pwdCode);
-      if(randomCode.current.toString() !== pwdCode || pwdCode === '' ) {
-        randomCode.current = 0;
-        setNewPwd(false);
-        setPwdCode('');
-        setPwdEmail('');
-        setPwdChange({
-          pwd1: '', pwd2: ''
-        })
-        setPwdMessage('');
-      }
-    }, 150000);
+      setTimeout(() => {
+        console.log(randomCode.current, pwdCode);
+          randomCode.current = 0;
+          setNewPwd(false);
+          setPwdCode('');
+          setPwdEmail('');
+          setPwdChange({
+            pwd1: '', pwd2: ''
+          })
+          setPwdMessage('');
+      }, 900000);
+    })
   }
 
   const handleSendCode = () => {
@@ -130,33 +132,38 @@ function Login() {
               <button type='submit'>Login</button>
             </Form>
           </Formik>
-          <button popovertarget="pwd-popover" className='forgot-pwd' onClick={() => setPopoverDisplay("flex")} >Forgotten password ?</button>
+          <button className='forgot-pwd' onClick={() => setPopoverDisplay("flex")} >Forgotten password ?</button>
           <p>Don't have an account? <a href='/signup' >Signup</a></p>
           
         </div>
         <div className='login-body-right'>
         <p style={{color:"red"}}>{loginMessage}</p>
         </div>
-        <div id='pwd-popover' popover="auto">
-            <p>Forgot password</p>
-            {
-              newPwd === false ? 
-              <>
-              <input type='email' placeholder='Enter your email' value={pwdEmail} onChange={(e) =>setPwdEmail(e.target.value)} />
-              <button onClick={handleSendEmail}>Send code</button>
+        {
+          popoverDisplay ? 
+          <div id='pwd-popover'>
+            <div className='popover-header'> <button onClick={() => setPopoverDisplay(false)}>X</button> </div>
+              <h3>Forgot password</h3>
+              {
+                newPwd === false ? 
+                <>
+                <h4 style={{color: "green"}}> {pwdNews} </h4>
+                <input type='email' placeholder='Enter your email' value={pwdEmail} onChange={(e) =>setPwdEmail(e.target.value)} />
+                <button disabled={btnLoading} className='pop-btn' onClick={handleSendEmail}>{ btnLoading ? 'sending...' : 'Send code' }</button>
 
-              <input type='text' placeholder='Enter the code' value={pwdCode} onChange={(e) => setPwdCode(e.target.value) } />
-              <p style={{ color: "red" }}>{ pwdMessage }</p>
-              <button onClick={handleSendCode}>Confirm</button>
-              </> : 
-              <>
-                <input type='password' placeholder='Enter new password' value={pwdChange.pwd1} onChange={(e) =>setPwdChange({...pwdChange, pwd1: e.target.value})} />
-                <input type='password' placeholder='Confirm new password' value={pwdChange.pwd2} onChange={(e) =>setPwdChange({...pwdChange, pwd2: e.target.value})} />
+                <input type='text' placeholder='Enter the code' value={pwdCode} onChange={(e) => setPwdCode(e.target.value) } />
                 <p style={{ color: "red" }}>{ pwdMessage }</p>
-                <button onClick={handleChangePassword}>SAVE</button>
-              </>
-            }
-        </div>
+                <button className='pop-btn' onClick={handleSendCode}>Confirm</button>
+                </> : 
+                <>
+                  <input type='password' placeholder='Enter new password' value={pwdChange.pwd1} onChange={(e) =>setPwdChange({...pwdChange, pwd1: e.target.value})} />
+                  <input type='password' placeholder='Confirm new password' value={pwdChange.pwd2} onChange={(e) =>setPwdChange({...pwdChange, pwd2: e.target.value})} />
+                  <p style={{ color: "red" }}>{ pwdMessage }</p>
+                  <button className='pop-btn' onClick={handleChangePassword}>SAVE</button>
+                </>
+              }
+          </div> : ''
+        }
       </div>
     </div>
   )
