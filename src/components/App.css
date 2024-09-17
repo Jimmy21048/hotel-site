@@ -445,6 +445,45 @@ a:focus, a:active {
   height:inherit;
   padding:20px;
 }
+.forgot-pwd {
+  background-color: transparent;
+  border: none;
+  color:var(--bgc3);
+}
+#pwd-popover {
+  height: max-content;
+  padding: 20px 10px;
+  width: 350px;
+  max-width: 95vw;
+  position: absolute;
+  /* display: grid; */
+  flex-direction: column;
+  gap: 10px;
+  top: 30vh;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  background-color:#f4f5f6;
+  border: none;
+  border-radius: 20px;
+}
+#pwd-popover input {
+  height: 5vh;
+  border-radius: 10px;
+  padding-left: 5px;
+  border: 1px solid gray;
+}
+#pwd-popover input:focus {
+  outline: 0;
+}
+#pwd-popover button {
+  width: 100px;
+  height: 5vh;
+  border-radius: 10px;
+  border: none;
+  background-color: rgba(20, 200, 255, 0.973);
+  cursor: pointer;
+}
 /* login */
 
   /* signup */

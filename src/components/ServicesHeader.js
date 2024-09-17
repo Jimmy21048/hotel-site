@@ -30,10 +30,10 @@ export default function Services({ checkFood }) {
         <header className="services-header">
             <Link to="/"><img src='../images/uradi-logo2.png' alt='hotel-logo' /></Link>
             <div className="services-tabs">
-                <Link className="button"  to="/main/foods" ><i class="fa-solid fa-mug-hot"></i>Menu</Link>
-                <Link className="button"  to="/main/rooms" ><i class="fa-solid fa-bed"></i>Rooms</Link>
-                <Link className="button"  to="/main/games" ><i class="fa-solid fa-puzzle-piece"></i>Activities</Link>
-                <Link className="button"  to="/about" ><i class="fa-solid fa-circle-info"></i>About</Link>
+                <Link className="button"  to="/main/foods" ><i className="fa-solid fa-mug-hot"></i>Menu</Link>
+                <Link className="button"  to="/main/rooms" ><i className="fa-solid fa-bed"></i>Rooms</Link>
+                <Link className="button"  to="/main/games" ><i className="fa-solid fa-puzzle-piece"></i>Activities</Link>
+                <Link className="button"  to="/about" ><i className="fa-solid fa-circle-info"></i>About</Link>
                 
             </div>
             {

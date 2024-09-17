@@ -15,9 +15,9 @@ export default function ShowPassword({ setPwdType}) {
         <>
         {
             showPassword ? 
-            <i class="fa-solid fa-eye-slash" onClick={handleChangePassword}></i>
+            <i className="fa-solid fa-eye-slash" onClick={handleChangePassword}></i>
             : 
-            <i class="fa-solid fa-eye" onClick={handleChangePassword}></i>
+            <i className="fa-solid fa-eye" onClick={handleChangePassword}></i>
         }    
         </>
     )
