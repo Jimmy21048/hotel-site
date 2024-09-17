@@ -456,7 +456,7 @@ a:focus, a:active {
   width: 350px;
   max-width: 95vw;
   position: absolute;
-  /* display: grid; */
+  display: flex;
   flex-direction: column;
   gap: 10px;
   top: 30vh;
@@ -476,13 +476,27 @@ a:focus, a:active {
 #pwd-popover input:focus {
   outline: 0;
 }
-#pwd-popover button {
+#pwd-popover .pop-btn {
   width: 100px;
   height: 5vh;
   border-radius: 10px;
   border: none;
   background-color: rgba(20, 200, 255, 0.973);
   cursor: pointer;
+}
+.popover-header {
+  display: flex;
+  justify-content: right;
+}
+.popover-header button {
+  height: 35px;
+  width: 35px;
+  border-radius: 50%;
+  background-color: red;
+  user-select: none;
+}
+#pwd-popover h3 {
+  text-align: center;
 }
 /* login */
 
