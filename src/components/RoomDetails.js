@@ -25,7 +25,7 @@ export default function RoomDetails() {
                     }
                 </ul>
                 <div className="room-desc">{theRoom.desc}</div>
-                <a className="link" href="/account">View my Bookings</a>
+                <a className="designated-button" href="/account">View my Bookings</a>
                 <p className="msgs" style={{color:"red"}}>Checkouts must be done before the midnight of the set date!</p>
                 <h4>Book Room</h4>
                 <form action="/booking" method="get">
@@ -43,7 +43,7 @@ export default function RoomDetails() {
                         People
                         <input type="number" defaultValue={1} name="guests" required />
                     </label>
-                    <button>Book Now</button>
+                    <button className="designated-button">Book Now</button>
                     
                 </form>
             </div>

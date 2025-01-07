@@ -21,8 +21,8 @@ function Account() {
 
 
   useEffect(() => {
-    // axios.get('http://localhost:3001/account', {
-    axios.get('https://uradi-encore-server.onrender.com/account', {
+    axios.get(process.env.ACCOUNT, {
+    // axios.get('https://uradi-encore-server.onrender.com/account', {
         headers: {
             accessToken: localStorage.getItem("accessToken")
         }
@@ -44,7 +44,7 @@ function Account() {
     })
 
 
-  }, []);
+  }, [loading]);
 
 
   function showHidden(id) {
@@ -74,6 +74,25 @@ function Account() {
 
     navigator.clipboard.writeText(copyText.value);
     document.querySelector("#link-copied").innerHTML = "Link copied to clipboard"
+  }
+
+  function handleDeleteBook(id) {
+    axios.post(process.env.DELETE_BOOKING, {id: id}, {
+    // axios.post('https://uradi-encore-server.onrender.com/account/deleteBooking', {
+      headers: {
+        accessToken: localStorage.getItem("accessToken")
+      }
+    }, setLoading(true))
+    .then(response => {
+      setLoading(false);
+      setHidden(true);
+    })
+  }
+
+  function handleCancelBook(id) {
+    if(window.confirm("Cancel Booking ?")) {
+      handleDeleteBook(id);
+    }
   }
 
   if(loading) {
@@ -128,7 +147,7 @@ function Account() {
         </div>
       </div>
       <div className='account-bookings'>
-        <p>BOOKINGS</p>
+        <p className='acc-bookings-p'>BOOKINGS</p>
         <div className="account-body-active">
                 {
                   bookings.length === 0 ?
@@ -151,6 +170,9 @@ function Account() {
                                     <p className={ hidden ? 'p-hidden' : '' }>To {booking.book_to}</p>
                                     <p className={ hidden ? 'p-hidden' : '' }>{booking.book_people > 1 ? booking.book_people + ' people' : booking.book_people + ' person'}</p>
                                     <p style={{fontSize: "0.7rem"}}>{booking.book_status === 0 ? `Check In on ${booking.book_from}` : booking.book_status === 2 ? `Expired` : booking.book_status === 1 ? `CheckedIn`: 'Error' }</p>
+                                    {
+                                      !hidden && booking.book_status === 2 ? <button onClick={() => handleDeleteBook(booking.book_id)}>Del</button> : ( !hidden && booking.book_status === 0) ? <button onClick={() => handleCancelBook(booking.book_id)}>Cancel booking</button> : ''
+                                    }
                                     {
                                       hidden ? 
                                       <button onClick={() => showHidden(booking.book_id)}>Info...</button> :
@@ -180,7 +202,7 @@ function Account() {
       </div>
       <div className='account-settings'>
         <p>SETTINGS</p>
-        <Link className='setting' onClick={() => setCheckLink(true)}><i  class="fa-solid fa-link"></i>SHARE LINK</Link>
+        <Link className='setting' onClick={() => setCheckLink(true)}><i  className="fa-solid fa-link"></i>SHARE LINK</Link>
         <Logout />
         
         

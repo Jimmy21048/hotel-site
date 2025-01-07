@@ -39,8 +39,8 @@ export default function Book() {
 
     useEffect(() => {
 
-        // axios.get("http://localhost:3001/details/room", {
-        axios.get("https://uradi-encore-server.onrender.com/details/room", {
+        axios.get(process.env.DETAILS_ROOM, {
+        // axios.get("https://uradi-encore-server.onrender.com/details/room", {
             headers: {
                 accessToken: localStorage.getItem("accessToken"),
                 roomType: type,
@@ -65,8 +65,8 @@ export default function Book() {
     const onSubmit = (data) => {
         if(window.confirm("Confirm booking")) {    
             data.room = available;
-            // axios.post('http://localhost:3001/account', data, {
-            axios.post('https://uradi-encore-server.onrender.com/account', data, {
+            axios.post(process.env.ACCOUNT, data, {
+            // axios.post('https://uradi-encore-server.onrender.com/account', data, {
                 headers: {
                     accessToken: localStorage.getItem("accessToken")
                 }
@@ -146,11 +146,11 @@ export default function Book() {
                             
                         </div>
                         {
-                            available > 0 ? <button type="submit">Book</button> :
+                            available > 0 ? <button type="submit" className="designated-button">Book</button> :
                             ''
                         }
-                        <a href={"/main/rooms/" + type}>Change Booking</a>
-                        <a href="/account">View Bookings</a>
+                        <a href={"/main/rooms/" + type} className="designated-button">Change Booking</a>
+                        <a href="/account" className="designated-button">View Bookings</a>
                         </Form>
                     </Formik>
                     <p className="msgs" style={{ color: "red" }}>{ loginState }</p>

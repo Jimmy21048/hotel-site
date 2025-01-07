@@ -4,7 +4,7 @@ import { foods } from "./foodsArray";
 import { useState, useContext, useEffect } from 'react'
 import { AuthContext } from "../helpers/AuthContext";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 
 export default function Foods() {
     const [checkFood, setCheckFood] = useState(false);
@@ -41,13 +41,12 @@ export default function Foods() {
     }
 
     useEffect(() => {
-        // axios.get("http://localhost:3001/foods", {
-        axios.get('https://uradi-encore-server.onrender.com/foods', {
+        axios.get(process.env.FOODS, {
+        // axios.get('https://uradi-encore-server.onrender.com/foods', {
             headers: {
                 accessToken: localStorage.getItem("accessToken")
             }
         }).then((response) => {
-            console.log(bookedRooms);
             setBookedRooms(response.data); 
             
         })
@@ -60,8 +59,8 @@ export default function Foods() {
         data.room = document.getElementById("theRoom").value;
 
             if(window.confirm("Confirm food order to room " + data.room)) {
-                // axios.post("http://localhost:3001/foods/order", data, {
-                    axios.post('https://uradi-encore-server.onrender.com/foods/order', data, {
+                axios.post(process.env.FOODS_ORDER, data, {
+                    // axios.post('https://uradi-encore-server.onrender.com/foods/order', data, {
                     headers: {
                         accessToken: localStorage.getItem("accessToken")
                     }
@@ -114,7 +113,7 @@ export default function Foods() {
                         <div className="food-clicked-footer">
                             {
                                 bookedRooms.length > 0 ? <button className="designated-button" onClick={onSubmit}>ORDER</button> :
-                                <a href="/main/rooms" className="designated-button">Book a room</a>
+                                <Link to="/main/rooms" className="designated-button">Book a room</Link>
                             }
             
                             <div>

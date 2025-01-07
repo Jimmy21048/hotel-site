@@ -17,9 +17,11 @@ export default function Home() {
         }, 4000);
     }, [])
 
+    console.log(process.env.REACT_APP_LOGIN_AUTH)
+
     useEffect(() => {
-        // axios.get("http://localhost:3001/login/auth", {
-        axios.get("https://uradi-encore-server.onrender.com/login/auth", {
+        axios.get(process.env.REACT_APP_LOGIN_AUTH, {
+        // axios.get("https://uradi-encore-server.onrender.com/login/auth", {
           headers : {
             accessToken: localStorage.getItem("accessToken")
           }
