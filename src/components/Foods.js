@@ -41,8 +41,7 @@ export default function Foods() {
     }
 
     useEffect(() => {
-        axios.get(process.env.FOODS, {
-        // axios.get('https://uradi-encore-server.onrender.com/foods', {
+        axios.get(process.env.REACT_APP_FOODS, {
             headers: {
                 accessToken: localStorage.getItem("accessToken")
             }
@@ -59,8 +58,7 @@ export default function Foods() {
         data.room = document.getElementById("theRoom").value;
 
             if(window.confirm("Confirm food order to room " + data.room)) {
-                axios.post(process.env.FOODS_ORDER, data, {
-                    // axios.post('https://uradi-encore-server.onrender.com/foods/order', data, {
+                axios.post(process.env.REACT_APP_FOODS_ORDER, data, {
                     headers: {
                         accessToken: localStorage.getItem("accessToken")
                     }

@@ -20,8 +20,7 @@ function Signup() {
   const [pwdType, setPwdType] = useState('password');
 
     const onSubmit = (data) => {
-        axios.post(process.env.SIGNUP, data, setLoading(true))
-        // axios.post('https://uradi-encore-server.onrender.com/signup', data, setLoading(true))
+        axios.post(process.env.REACT_APP_SIGNUP, data, setLoading(true))
         .then((response) => {
           setLoading(false);
           if(response.data === "Sign Up successful, Login") {

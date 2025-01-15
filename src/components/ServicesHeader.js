@@ -5,8 +5,7 @@ import axios from 'axios';
 export default function Services({ checkFood }) {
     const { setAuthState, authState,  username} = useContext(AuthContext);
 
-    axios.get(process.env.LOGIN_AUTH, {
-        // axios.get("https://uradi-encore-server.onrender.com/login/auth", {
+    axios.get(process.env.REACT_APP_LOGIN_AUTH, {
           headers : {
             accessToken: localStorage.getItem("accessToken")
           }

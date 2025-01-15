@@ -39,8 +39,7 @@ export default function Book() {
 
     useEffect(() => {
 
-        axios.get(process.env.DETAILS_ROOM, {
-        // axios.get("https://uradi-encore-server.onrender.com/details/room", {
+        axios.get(process.env.REACT_APP_DETAILS_ROOM, {
             headers: {
                 accessToken: localStorage.getItem("accessToken"),
                 roomType: type,
@@ -65,8 +64,7 @@ export default function Book() {
     const onSubmit = (data) => {
         if(window.confirm("Confirm booking")) {    
             data.room = available;
-            axios.post(process.env.ACCOUNT, data, {
-            // axios.post('https://uradi-encore-server.onrender.com/account', data, {
+            axios.post(process.env.REACT_APP_ACCOUNT, data, {
                 headers: {
                     accessToken: localStorage.getItem("accessToken")
                 }

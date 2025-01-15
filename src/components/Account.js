@@ -21,8 +21,7 @@ function Account() {
 
 
   useEffect(() => {
-    axios.get(process.env.ACCOUNT, {
-    // axios.get('https://uradi-encore-server.onrender.com/account', {
+    axios.get(process.env.REACT_APP_ACCOUNT, {
         headers: {
             accessToken: localStorage.getItem("accessToken")
         }
@@ -77,8 +76,7 @@ function Account() {
   }
 
   function handleDeleteBook(id) {
-    axios.post(process.env.DELETE_BOOKING, {id: id}, {
-    // axios.post('https://uradi-encore-server.onrender.com/account/deleteBooking', {
+    axios.post(process.env.REACT_APP_DELETE_BOOKING, {id: id}, {
       headers: {
         accessToken: localStorage.getItem("accessToken")
       }

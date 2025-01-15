@@ -31,8 +31,7 @@ function Login() {
   const [btnLoading, setBtnLoading] = useState(false);
 
   const onSubmit = (data) => {
-    axios.post(process.env.LOGIN, data, setLoading(true))
-    // axios.post('https://uradi-encore-server.onrender.com/login', data, setLoading(true))
+    axios.post(process.env.REACT_APP_LOGIN, data, setLoading(true))
     .then((response) => {
       if(response.data.error) {
         setLoading(false);
@@ -51,8 +50,7 @@ function Login() {
     setPwdNews('');
     setPwdMessage('');
     randomCode.current = (Math.floor(Math.random() * 100000))
-    axios.post(process.env.FORGOT_PASSWORD, {code: randomCode, email: pwdEmail}, setBtnLoading(true))
-    // axios.post('https://uradi-encore-server.onrender.com/forgotpassword', {code: randomCode, email: pwdEmail}, setBtnLoading(true))
+    axios.post(process.env.REACT_APP_FORGOT_PASSWORD, {code: randomCode, email: pwdEmail}, setBtnLoading(true))
     .then(response => {
       setBtnLoading(false);
       if(response.data.success) {
@@ -87,8 +85,7 @@ function Login() {
 
   const handleChangePassword = () => {
     if(pwdChange.pwd1 === pwdChange.pwd2) {
-      axios.post(process.env.CHANGE_PASSWORD, {pwd : pwdChange.pwd1, email: pwdEmail})
-      // axios.post('https://uradi-encore-server.onrender.com/changepassword', {pwd : pwdChange.pwd1, email: pwdEmail})
+      axios.post(process.env.REACT_APP_CHANGE_PASSWORD, {pwd : pwdChange.pwd1, email: pwdEmail})
       .then((response) => {
         if(response.data.success) {
           setLoginState("Password changed succesfully");
