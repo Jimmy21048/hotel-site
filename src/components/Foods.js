@@ -5,6 +5,7 @@ import { useState, useContext, useEffect } from 'react'
 import { AuthContext } from "../helpers/AuthContext";
 import axios from "axios";
 import { useNavigate, Link } from "react-router-dom";
+import LoadingImage from "./LoadingImage";
 
 export default function Foods() {
     const [checkFood, setCheckFood] = useState(false);
@@ -137,7 +138,8 @@ export default function Foods() {
                                         <p>{food.name}</p>
                                         <p>Ksh {food.price}</p>
                                     </div>
-                                    <img src={food.img} alt={food.name +" "+ food.category} />
+                                    {/* <img src={food.img} alt={food.name +" "+ food.category} /> */}
+                                    <LoadingImage className={'img'} src={food.img} alt={food.name +" "+ food.category} width={'55%'} height={'inherit'} borderRadius={'10px'} />
                                 </div>
                             )
                         })
@@ -155,7 +157,8 @@ export default function Foods() {
                                         <p>{food.name}</p>
                                         <p>{food.price}</p>
                                     </div>
-                                    <img src={food.img} alt={food.name +" "+ food.category} />
+                                    {/* <img className="img" src={food.img} alt={food.name +" "+ food.category} /> */}
+                                    <LoadingImage className={'img'} src={food.img} alt={food.name +" "+ food.category} width={'55%'} height={'inherit'} borderRadius={'10px'} />
                                 </div>
                             )
                         })
@@ -173,7 +176,8 @@ export default function Foods() {
                                         <p>{food.name}</p>
                                         <p>Ksh {food.price}</p>
                                     </div>
-                                    <img src={food.img} alt={food.name +" "+ food.category} />
+                                    {/* <img className="img" src={food.img} alt={food.name +" "+ food.category} /> */}
+                                    <LoadingImage className={'img'} src={food.img} alt={food.name +" "+ food.category} width={'55%'} height={'inherit'} borderRadius={'10px'} />
                                 </div>
                             )
                         })
@@ -191,7 +195,8 @@ export default function Foods() {
                                         <p>{food.name}</p>
                                         <p>Ksh {food.price}</p>
                                     </div>
-                                    <img src={food.img} alt={food.name +" "+ food.category} />
+                                    {/* <img className="img" src={food.img} alt={food.name +" "+ food.category} /> */}
+                                    <LoadingImage className={'img'} src={food.img} alt={food.name +" "+ food.category} width={'55%'} height={'inherit'} borderRadius={'10px'} />
                                 </div>
                             )
                         })
@@ -209,7 +214,8 @@ export default function Foods() {
                                         <p>{food.name}</p>
                                         <p>Ksh {food.price}</p>
                                     </div>
-                                    <img src={food.img} alt={food.name +" "+ food.category} />
+                                    {/* <img className="img" src={food.img} alt={food.name +" "+ food.category} /> */}
+                                    <LoadingImage className={'img'} src={food.img} alt={food.name +" "+ food.category} width={'55%'} height={'inherit'} borderRadius={'10px'} />
                                 </div>
                             )
                         })

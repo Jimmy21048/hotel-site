@@ -618,7 +618,7 @@ a:focus, a:active {
   .room h3 {
     margin:5px 0;
   }
-  .room img {
+  .room .img {
     height:200px;
     width:inherit;
     object-fit: cover;
@@ -851,8 +851,8 @@ a:focus, a:active {
   text-align:center;
   font-weight: 600;
 }
-.food img {
-  width:55%;
+.food .img {
+  width:100%;
   height:inherit;
   object-fit: cover;
   border-top-right-radius: 10px;
